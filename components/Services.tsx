@@ -2,7 +2,14 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+
+function getScrollIndex(el: HTMLDivElement, count: number): number {
+  const scrollLeft = el.scrollLeft;
+  const step = el.offsetWidth; // one card = full width, no gap
+  const index = Math.round(scrollLeft / step);
+  return Math.max(0, Math.min(index, count - 1));
+}
 
 export default function Services() {
   const t = useTranslations("services");
@@ -38,21 +45,44 @@ export default function Services() {
   const cardShadow =
     "0px 193px 54px rgba(177, 192, 196, 0.01), 0px 123px 49px rgba(177, 192, 196, 0.08), 0px 69px 42px rgba(177, 192, 196, 0.26), 0px 31px 31px rgba(177, 192, 196, 0.45), 0px 8px 17px rgba(177, 192, 196, 0.52)";
 
+  const updateIndex = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setActiveIndex((prev) => {
+      const next = getScrollIndex(el, services.length);
+      return next !== prev ? next : prev;
+    });
+  }, [services.length]);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    let scrollEndTimer: ReturnType<typeof setTimeout>;
+    const onScrollEnd = () => {
+      clearTimeout(scrollEndTimer);
+      scrollEndTimer = setTimeout(updateIndex, 100);
+    };
+    el.addEventListener("scrollend", updateIndex);
+    el.addEventListener("scroll", onScrollEnd);
+    return () => {
+      el.removeEventListener("scrollend", updateIndex);
+      el.removeEventListener("scroll", onScrollEnd);
+      clearTimeout(scrollEndTimer);
+    };
+  }, [updateIndex]);
+
   const goToSlide = (index: number) => {
     const el = scrollRef.current;
     if (!el) return;
-    const card = el.querySelector(`[data-slide="${index}"]`) as HTMLElement;
-    card?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+    el.scrollTo({ left: index * el.offsetWidth, behavior: "smooth" });
     setActiveIndex(index);
   };
 
   const handleScroll = () => {
     const el = scrollRef.current;
     if (!el) return;
-    const scrollLeft = el.scrollLeft;
-    const cardWidth = el.offsetWidth;
-    const index = Math.round(scrollLeft / cardWidth);
-    setActiveIndex(Math.min(index, services.length - 1));
+    const index = getScrollIndex(el, services.length);
+    setActiveIndex(index);
   };
 
   return (
@@ -73,14 +103,14 @@ export default function Services() {
           <div
             ref={scrollRef}
             onScroll={handleScroll}
-            className="flex snap-x snap-mandatory overflow-x-auto gap-5 pb-4 -mx-6 px-6 scroll-smooth scrollbar-hide"
+            className="flex snap-x snap-mandatory overflow-x-auto pb-4 -mx-6 px-6 scroll-smooth scrollbar-hide"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {services.map((s, i) => (
               <div
                 key={s.title}
                 data-slide={i}
-                className="flex shrink-0 w-[calc(100vw-48px)] max-w-[280px] snap-center snap-always flex-col rounded-[24px]"
+                className="flex shrink-0 w-full min-w-full snap-center snap-always flex-col rounded-[24px]"
                 style={{
                   height: "244px",
                   borderRadius: "24px",

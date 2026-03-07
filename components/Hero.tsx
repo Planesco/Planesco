@@ -6,7 +6,7 @@ export default async function Hero() {
   const t = await getTranslations("hero");
   return (
     <section
-      className="relative flex min-h-[calc(100vh-140px)] w-full flex-col items-center justify-center overflow-hidden py-20 md:py-24 lg:py-[128px] px-6 md:px-12 lg:px-[120px]"
+      className="relative flex min-h-[calc(100vh-140px)] w-full flex-col items-center justify-start overflow-hidden pt-12 pb-0 md:justify-center md:py-24 lg:py-[128px] px-6 md:px-12 lg:px-[120px]"
       style={{
         isolation: "isolate",
         ["--hero-bg-position-x" as string]: "center",
@@ -44,10 +44,10 @@ export default async function Hero() {
         aria-hidden
       />
 
-      {/* Worker figure: full-width layer so text can sit on top */}
-      <div className="hero-figure-column absolute inset-0 z-[1] flex items-center justify-end pr-4 md:pr-6 lg:pr-8 xl:pr-10">
+      {/* Worker figure: on mobile bottom-half only so it doesn't overlap headline/CTA; desktop unchanged */}
+      <div className="hero-figure-column absolute inset-0 z-[1] flex items-end justify-end pr-0 md:items-center md:pr-6 lg:pr-8 xl:pr-10">
         <div
-          className="hero-figure-inner relative h-full w-full max-w-[min(100%,360px)] md:max-w-[min(100%,500px)] lg:max-w-[var(--hero-image-max-width)]"
+          className="hero-figure-inner relative h-full w-full max-w-[min(100%,360px)] md:max-w-[min(100%,500px)] lg:max-w-[var(--hero-image-max-width)] hero-figure-mobile"
           style={{
             marginTop: "var(--hero-image-margin-top)",
             marginRight: "var(--hero-image-margin-right)",
@@ -61,7 +61,7 @@ export default async function Hero() {
             alt=""
             width={1100}
             height={752}
-            className="hero-figure-img h-full w-full object-contain object-right"
+            className="hero-figure-img h-full w-full object-contain object-right object-bottom md:object-center"
             priority
             style={{ opacity: "var(--hero-image-opacity, 1)" }}
             sizes="(max-width: 767px) 620px, (max-width: 1023px) 800px, 1280px"
@@ -69,14 +69,14 @@ export default async function Hero() {
         </div>
       </div>
 
-      {/* Text overlay: always 3 lines, on top of background and figure */}
+      {/* Text overlay: on mobile at top above figure; desktop centered */}
       <div
-        className="relative z-10 mx-auto flex w-full max-w-[1920px] flex-col items-start justify-center pl-8 md:pl-12 lg:pl-16 xl:pl-20"
+        className="relative z-10 mx-auto flex w-full max-w-[1920px] flex-col items-start justify-start pt-0 md:justify-center md:pt-0 pl-4 pr-4 md:pl-12 lg:pl-16 xl:pl-20"
         style={{ fontFamily: "var(--font-hero)" }}
       >
-        <div className="flex max-w-[960px] flex-col gap-4">
+        <div className="flex max-w-[960px] flex-col gap-4 w-full">
           <h1
-            className="whitespace-pre-line font-semibold leading-[1.12] tracking-[-0.02em] text-white md:text-[48px] lg:text-[56px] xl:text-[64px]"
+            className="whitespace-pre-line font-semibold leading-[1.12] tracking-[-0.02em] text-white text-[28px] sm:text-[32px] md:text-[48px] lg:text-[56px] xl:text-[64px]"
             style={{ fontFamily: "var(--font-hero)" }}
           >
             {(() => {

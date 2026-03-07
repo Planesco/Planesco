@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const gradientStyle = {
   background:
@@ -15,25 +15,55 @@ const cardShadow =
 
 type Stat = { value: string; label: string };
 
+function getScrollIndex(el: HTMLDivElement, count: number): number {
+  const scrollLeft = el.scrollLeft;
+  const step = el.offsetWidth; // one card = full width, no gap
+  const index = Math.round(scrollLeft / step);
+  return Math.max(0, Math.min(index, count - 1));
+}
+
 export default function MetricsCarousel({ stats }: { stats: Stat[] }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const updateIndex = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setActiveIndex((prev) => {
+      const next = getScrollIndex(el, stats.length);
+      return next !== prev ? next : prev;
+    });
+  }, [stats.length]);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    let scrollEndTimer: ReturnType<typeof setTimeout>;
+    const onScrollEnd = () => {
+      clearTimeout(scrollEndTimer);
+      scrollEndTimer = setTimeout(updateIndex, 100);
+    };
+    el.addEventListener("scrollend", updateIndex);
+    el.addEventListener("scroll", onScrollEnd);
+    return () => {
+      el.removeEventListener("scrollend", updateIndex);
+      el.removeEventListener("scroll", onScrollEnd);
+      clearTimeout(scrollEndTimer);
+    };
+  }, [updateIndex]);
+
   const goToSlide = (index: number) => {
     const el = scrollRef.current;
     if (!el) return;
-    const card = el.querySelector(`[data-metric-slide="${index}"]`) as HTMLElement;
-    card?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+    el.scrollTo({ left: index * el.offsetWidth, behavior: "smooth" });
     setActiveIndex(index);
   };
 
   const handleScroll = () => {
     const el = scrollRef.current;
     if (!el) return;
-    const scrollLeft = el.scrollLeft;
-    const cardWidth = el.offsetWidth;
-    const index = Math.round(scrollLeft / cardWidth);
-    setActiveIndex(Math.min(index, stats.length - 1));
+    const index = getScrollIndex(el, stats.length);
+    setActiveIndex(index);
   };
 
   return (
@@ -41,14 +71,14 @@ export default function MetricsCarousel({ stats }: { stats: Stat[] }) {
       <div
         ref={scrollRef}
         onScroll={handleScroll}
-        className="flex snap-x snap-mandatory overflow-x-auto gap-4 pb-4 -mx-6 px-6 scroll-smooth"
+        className="flex snap-x snap-mandatory overflow-x-auto pb-4 -mx-6 px-6 scroll-smooth"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {stats.map((stat, i) => (
           <div
             key={stat.label}
             data-metric-slide={i}
-            className="flex shrink-0 w-[calc(100vw-48px)] max-w-[280px] snap-center snap-always flex-col items-center justify-center rounded-[14px] bg-white py-8 px-6 text-center"
+            className="flex shrink-0 w-full min-w-full snap-center snap-always flex-col items-center justify-center rounded-[14px] bg-white py-8 px-6 text-center"
             style={{
               boxShadow: cardShadow,
               fontFamily: "var(--font-hero)",

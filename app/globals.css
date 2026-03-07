@@ -87,6 +87,26 @@
   }
 }
 
+/* Mobile: confine figure to lower half of hero so it doesn't overlap headline/CTA */
+.hero-figure-mobile {
+  height: 50vh;
+  min-height: 280px;
+  max-height: 380px;
+}
+@media (min-width: 768px) {
+  .hero-figure-mobile {
+    height: var(--hero-image-min-height-md);
+    min-height: var(--hero-image-min-height-md);
+    max-height: none;
+  }
+}
+@media (min-width: 1024px) {
+  .hero-figure-mobile {
+    height: var(--hero-image-min-height-lg);
+    min-height: var(--hero-image-min-height-lg);
+  }
+}
+
 /* Hero figure image: object-fit and object-position (pan/crop within the frame) */
 .hero-figure-img {
   object-fit: var(--hero-image-object-fit);
