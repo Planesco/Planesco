@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "title": "PLANESCO – Consultoría de construcción industrial",
+    "description": "Control, predictibilidad y cumplimiento en todas las fases de un proyecto de construcción."
+  },
+  "header": {
+    "services": "Servicios",
+    "howWeWork": "Cómo trabajamos",
+    "ourApproach": "Nuestro enfoque",
+    "contactUs": "Reservar sesión",
+    "langLabel": "Esp"
+  },
+  "hero": {
+    "headline": "Control, predictibilidad y\ncumplimiento en todas las fases\nde un proyecto de construcción.",
+    "predictability": "predictibilidad",
+    "cta": "Nuestro enfoque"
+  },
+  "metrics": {
+    "stat1Value": "15+",
+    "stat1Label": "Años de experiencia industrial",
+    "stat2Value": "30+",
+    "stat2Label": "Proyectos gestionados",
+    "stat3Value": "3+",
+    "stat3Label": "Países de operación"
+  },
+  "services": {
+    "title": "Servicios",
+    "projectManagement": "Gestión de proyectos",
+    "planningControls": "Planificación y\nControl de proyectos",
+    "planningControlsDesc": "Transformamos los datos del proyecto en información clara y fiable que apoya la toma de decisiones oportuna y el control proactivo del proyecto.",
+    "safetyByDesign": "Seguridad por diseño (SBD)",
+    "aiTools": "IA\nHerramientas"
+  },
+  "howWeWork": {
+    "title": "Cómo trabajamos",
+    "subtitle": "Nuestro enfoque en la ejecución de proyectos industriales",
+    "step1Title": "Evaluación",
+    "step1Desc": "Evaluamos el contexto, objetivos, restricciones y riesgos del proyecto para establecer una comprensión clara y compartida del trabajo a realizar.",
+    "step2Title": "Planificación",
+    "step2Desc": "Definimos la estructura del proyecto, la estrategia de ejecución y el marco de control necesarios para una entrega predecible.",
+    "step3Title": "Ejecución",
+    "step3Desc": "Apoyamos y supervisamos la ejecución del proyecto, asegurando la alineación con el plan definido, los requisitos técnicos y los objetivos del cliente.",
+    "step4Title": "Seguimiento",
+    "step4Desc": "Monitoreamos continuamente el rendimiento del proyecto, identificando desviaciones de forma temprana y permitiendo decisiones informadas y oportunas."
+  },
+  "ourApproach": {
+    "title": "Nuestro Enfoque:",
+    "paragraph1": "PLANESCO ofrece apoyo estructurado a sus clientes en todas las fases de un proyecto de construcción, desde la ingeniería y el diseño inicial hasta la ejecución y puesta en marcha.",
+    "paragraph2": "Nuestro enfoque se basa en una gobernanza clara, una planificación fiable y un control disciplinado, de modo que plazos, costes y entregables sigan alineados durante todo el ciclo de vida del proyecto.",
+    "paragraph3": "Al integrar la inteligencia artificial en nuestras herramientas, acortamos los tiempos de reacción y permitimos acciones correctivas oportunas ante desviaciones detectadas a tiempo, apoyando un rendimiento constante del proyecto.",
+    "paragraph4": "La seguridad es una prioridad en PLANESCO. Nuestro enfoque Safety by Design integra los principios de seguridad en la ingeniería y el diseño, y estos resultados se trasladan a la planificación de ejecución.",
+    "paragraph5": "Así  no solo ofrecemos condiciones de trabajo más seguras, sino que medimos el rendimiento y seguimos las áreas de mejora continua.",
+    "whatClientsSay": "Perspectiva del cliente",
+    "testimonial": "Su enfoque estructurado de planificación y control de proyectos aportó claridad a un proyecto industrial complejo con importantes restricciones de plazos y normativas.\n\nEl nivel de supervisión y disciplina aplicado durante la ejecución nos permitió mantener el control y tomar decisiones informadas en etapas críticas.",
+    "testimonialAuthor": "Michael Turner",
+    "testimonialRole": "Director de proyecto, instalación industrial"
+  },
+  "contact": {
+    "headline": "Déjanos un mensaje:",
+    "name": "Nombre*",
+    "email": "Correo*",
+    "phone": "Teléfono",
+    "subject": "Asunto*",
+    "message": "Tu mensaje*",
+    "submit": "Contactar",
+    "sending": "Enviando…",
+    "disclaimer": "Sin compromiso. Conversación confidencial. Asesoramiento práctico.",
+    "success": "Mensaje enviado. Nos pondremos en contacto pronto.",
+    "errorRequired": "Por favor completa todos los campos obligatorios (Nombre, Correo, Mensaje).",
+    "errorGeneric": "Algo ha ido mal. Por favor, inténtalo de nuevo.",
+    "errorNetwork": "Error de red. Por favor, inténtalo de nuevo.",
+    "orEmail": "O escríbenos a:",
+    "sectionTitle1": "Habla con un",
+    "sectionTitle2": "experto en",
+    "sectionTitle3": "construcción",
+    "sectionTitle4": "industrial",
+    "sectionDesc": "Obtén claridad sobre los riesgos de tu proyecto, la estructura de control y la estrategia de ejecución."
+  },
+  "footer": {
+    "tagline": "Consultoría de construcción industrial",
+    "line2": "Ejecución estructurada. Entrega controlada. Confianza regulatoria.",
+    "contact": "Contacto:",
+    "copyright": "© 2026 PLANESCO. Todos los derechos reservados."
+  }
+}

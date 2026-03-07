@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "title": "PLANESCO – Conseil en construction industrielle",
+    "description": "Maîtrise, prévisibilité et conformité à toutes les phases d'un projet de construction."
+  },
+  "header": {
+    "services": "Services",
+    "howWeWork": "Comment nous travaillons",
+    "ourApproach": "Notre approche",
+    "contactUs": "Réserver une session",
+    "langLabel": "Fr"
+  },
+  "hero": {
+    "headline": "Maîtrise, prévisibilité et\nconformité à toutes les phases\nd'un projet de construction.",
+    "predictability": "prévisibilité",
+    "cta": "Notre approche"
+  },
+  "metrics": {
+    "stat1Value": "15+",
+    "stat1Label": "Années d'expérience industrielle",
+    "stat2Value": "30+",
+    "stat2Label": "Projets gérés",
+    "stat3Value": "3+",
+    "stat3Label": "Pays d'intervention"
+  },
+  "services": {
+    "title": "Services",
+    "projectManagement": "Gestion de projet",
+    "planningControls": "Planification &\nContrôle de projet",
+    "planningControlsDesc": "Nous transformons les données du projet en informations claires et fiables pour une prise de décision en temps utile et un contrôle proactif du projet.",
+    "safetyByDesign": "Sécurité par la conception (SBD)",
+    "aiTools": "IA\nOutils"
+  },
+  "howWeWork": {
+    "title": "Comment nous travaillons",
+    "subtitle": "Notre approche de la réalisation de projets industriels",
+    "step1Title": "Évaluation",
+    "step1Desc": "Nous évaluons le contexte, les objectifs, les contraintes et les risques du projet pour établir une compréhension claire et partagée du travail à accomplir.",
+    "step2Title": "Planification",
+    "step2Desc": "Nous définissons la structure du projet, la stratégie d'exécution et le cadre de contrôle nécessaires pour une livraison prévisible.",
+    "step3Title": "Exécution",
+    "step3Desc": "Nous accompagnons et supervisons l'exécution du projet, en veillant à l'alignement avec le plan défini, les exigences techniques et les objectifs du client.",
+    "step4Title": "Suivi",
+    "step4Desc": "Nous suivons en continu les performances du projet, en identifiant les écarts rapidement et en permettant des décisions éclairées en temps utile."
+  },
+  "ourApproach": {
+    "title": "Notre Approche:",
+    "paragraph1": "PLANESCO apporte un accompagnement structuré à ses clients à toutes les phases d'un projet de construction, de l'ingénierie et de la conception jusqu'à l'exécution et la mise en service.",
+    "paragraph2": "Notre approche repose sur une gouvernance claire, une planification fiable et un contrôle rigoureux, pour que les délais, les coûts et les livrables restent alignés tout au long du cycle de vie du projet.",
+    "paragraph3": "En intégrant l'intelligence artificielle dans nos outils, nous raccourcissons les délais de réaction et permettons des actions correctives en temps utile face aux écarts identifiés tôt, pour une performance de projet constante.",
+    "paragraph4": "La sécurité est une priorité chez PLANESCO. Notre approche Safety by Design intègre les principes de sécurité dans l'ingénierie et la conception, avec des effets jusqu'à la planification d'exécution.",
+    "paragraph5": "Cela  nous permet non seulement d'offrir des conditions de travail plus sûres, mais aussi de mesurer les performances et de suivre les axes d'amélioration continue.",
+    "whatClientsSay": "Point de vue client",
+    "testimonial": "Leur approche structurée de la planification et du contrôle de projet a apporté de la clarté à un projet industriel complexe avec des contraintes importantes de calendrier et de réglementation.\n\nLe niveau de supervision et de rigueur appliqué tout au long de l'exécution nous a permis de garder le contrôle et de prendre des décisions éclairées à des étapes critiques.",
+    "testimonialAuthor": "Michael Turner",
+    "testimonialRole": "Directeur de projet, installation industrielle"
+  },
+  "contact": {
+    "headline": "Laissez-nous un message :",
+    "name": "Nom*",
+    "email": "E-mail*",
+    "phone": "Téléphone",
+    "subject": "Sujet*",
+    "message": "Votre message*",
+    "submit": "Nous contacter",
+    "sending": "Envoi en cours…",
+    "disclaimer": "Sans engagement. Échange confidentiel. Conseils pratiques.",
+    "success": "Message envoyé. Nous vous recontacterons bientôt.",
+    "errorRequired": "Veuillez remplir tous les champs obligatoires (Nom, E-mail, Message).",
+    "errorGeneric": "Une erreur s'est produite. Veuillez réessayer.",
+    "errorNetwork": "Erreur réseau. Veuillez réessayer.",
+    "orEmail": "Ou écrivez-nous à :",
+    "sectionTitle1": "Parlez à un",
+    "sectionTitle2": "expert en",
+    "sectionTitle3": "construction",
+    "sectionTitle4": "industrielle",
+    "sectionDesc": "Obtenez des éclaircissements sur les risques de votre projet, la structure de contrôle et la stratégie d'exécution."
+  },
+  "footer": {
+    "tagline": "Conseil en construction industrielle",
+    "line2": "Exécution structurée. Livraison maîtrisée. Confiance réglementaire.",
+    "contact": "Contact :",
+    "copyright": "© 2026 PLANESCO. Tous droits réservés."
+  }
+}

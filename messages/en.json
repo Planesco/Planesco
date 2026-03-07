@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "title": "PLANESCO – Industrial Construction Consulting",
+    "description": "Control, predictability, and compliance across all phases of a construction project."
+  },
+  "header": {
+    "services": "Services",
+    "howWeWork": "How We Work",
+    "ourApproach": "Our Approach",
+    "contactUs": "Book Strategy Session",
+    "langLabel": "Eng"
+  },
+  "hero": {
+    "headline": "Control, predictability, and\ncompliance across all phases\nof a construction project.",
+    "predictability": "predictability",
+    "cta": "Our Approach"
+  },
+  "metrics": {
+    "stat1Value": "15+",
+    "stat1Label": "Years of Industrial Experience",
+    "stat2Value": "30+",
+    "stat2Label": "Projects Managed",
+    "stat3Value": "3+",
+    "stat3Label": "Countries of Operation"
+  },
+  "services": {
+    "title": "Services",
+    "projectManagement": "Project Management",
+    "planningControls": "Planning &\nProject Controls",
+    "planningControlsDesc": "We transform project data into clear, reliable insights that support timely decision-making and proactive project control.",
+    "safetyByDesign": "Safety by Design (SBD)",
+    "aiTools": "AI\nTools"
+  },
+  "howWeWork": {
+    "title": "How We Work",
+    "subtitle": "Our approach to industrial project delivery",
+    "step1Title": "Assessment",
+    "step1Desc": "We assess the project context, objectives, constraints, and risks to establish a clear and shared understanding of the work ahead.",
+    "step2Title": "Plan",
+    "step2Desc": "We define the project structure, execution strategy, and control framework required to support predictable delivery.",
+    "step3Title": "Execution",
+    "step3Desc": "We support and oversee project execution, ensuring alignment with the defined plan, technical requirements, and client objectives.",
+    "step4Title": "Monitoring",
+    "step4Desc": "We continuously monitor project performance, identifying deviations early and enabling timely, informed decisions."
+  },
+  "ourApproach": {
+    "title": "Our Approach:",
+    "paragraph1": "PLANESCO provides structured support to its clients across all phases of a construction project, from early engineering and design through construction execution and commissioning.",
+    "paragraph2": "Our approach is grounded in clear governance, reliable planning, and disciplined control, ensuring that schedules, costs, and deliverables remain aligned throughout the project lifecycle.",
+    "paragraph3": "By integrating artificial intelligence into our tools, we shorten reaction times and enable timely corrective actions for early-identified project deviations, supporting consistent project performance.",
+    "paragraph4": "Safety is a core priority at PLANESCO. Our Safety by Design approach embeds safety principles into engineering and design, with these outcomes carried through into execution planning.",
+    "paragraph5": "This  allows us not only to provide safer working conditions, but also to measure performance and track continuous improvement areas.",
+    "whatClientsSay": "Client Perspective",
+    "testimonial": "Their structured planning and project controls approach brought clarity to a complex industrial project with significant schedule and regulatory constraints.\n\nThe level of oversight and discipline applied throughout execution allowed us to maintain control and make informed decisions at critical stages.",
+    "testimonialAuthor": "Michael Turner",
+    "testimonialRole": "Project Director, Industrial Facility"
+  },
+  "contact": {
+    "headline": "Drop us a message:",
+    "name": "Name*",
+    "email": "Email*",
+    "phone": "Phone",
+    "subject": "Subject*",
+    "message": "Your message*",
+    "submit": "Contact us",
+    "sending": "Sending…",
+    "disclaimer": "No obligation. Confidential discussion. Practical insight.",
+    "success": "Message sent. We'll be in touch soon.",
+    "errorRequired": "Please fill in all required fields (Name, Email, Message).",
+    "errorGeneric": "Something went wrong. Please try again.",
+    "errorNetwork": "Network error. Please try again.",
+    "orEmail": "Or email us at:",
+    "sectionTitle1": "Talk to an",
+    "sectionTitle2": "Industrial",
+    "sectionTitle3": "Construction",
+    "sectionTitle4": "Expert",
+    "sectionDesc": "Gain clarity on your project risks, control structure, and execution strategy."
+  },
+  "footer": {
+    "tagline": "Industrial Construction Consulting",
+    "line2": "Structured execution. Controlled delivery. Regulatory confidence.",
+    "contact": "Contact:",
+    "copyright": "© 2026 PLANESCO. All rights reserved."
+  }
+}

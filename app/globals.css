@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark: #1a1a1a;
+  --color-dark-muted: #2d2d2d;
+  --color-dark-green: #0f2a14;
+  --color-page-bg: #EBF2F1;
+  --color-hero-overlay: rgba(30, 30, 34, 0.6);
+  --color-hero-orbit-bg: rgba(32, 32, 39, 0.1);
+  --color-hero-icon-bg: #202027;
+  --color-hero-icon-border: #B9E629;
+  --color-lime: #B9E629;
+  --color-lime-alt: #B9E629;
+  --color-lime-dark: #779516;
+  --color-teal: #2dd4bf;
+  --color-white: #ffffff;
+  --color-gray-bg: #f5f5f5;
+  --color-gray-border: #e5e5e5;
+  --color-button-text: #1C1E1F;
+  --color-section-heading: #1C1E1F;
+  --color-body-text: #2E3130;
+  --color-muted-text: #596A73;
+  --color-card-light: #F6FCFB;
+  --color-card-muted: #EDF4F3;
+  --color-footer-bg: #1A1818;
+  --color-footer-text: #99A39D;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 24px;
+  --radius-pill: 58px;
+  --shadow-card: 0px 193px 54px rgba(177, 192, 196, 0.01), 0px 123px 49px rgba(177, 192, 196, 0.08), 0px 69px 42px rgba(177, 192, 196, 0.26), 0px 31px 31px rgba(177, 192, 196, 0.45), 0px 8px 17px rgba(177, 192, 196, 0.52);
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-hero: "Plus Jakarta Sans", system-ui, sans-serif;
+
+  /* Hero image: all values in px so you can adjust by pixel */
+  --hero-image-offset-x: 100px;
+  --hero-image-offset-y: -20px;
+  --hero-image-scale: 1;
+  --hero-image-max-width: 1280px;
+  --hero-image-min-height: 400px;
+  --hero-image-min-height-md: 520px;
+  --hero-image-min-height-lg: 800px;
+  /* Nudge the image container by px */
+  --hero-image-margin-top: 0px;
+  --hero-image-margin-right: 0px;
+  --hero-image-margin-bottom: 0px;
+  --hero-image-margin-left: 0px;
+  /* Hero image: how the image fills its frame (e.g. contain, cover) and where it’s anchored */
+  --hero-image-object-fit: contain;
+  --hero-image-object-position: right center;
+  --hero-image-opacity: 1;
+  /* Hero bottom overlay: the gradient bar above the next section (height and opacity) */
+  --hero-bottom-overlay-height: 80px;
+  --hero-bottom-overlay-opacity: 1;
+}
+
+/* Hero figure column: uses the variables above for responsive height */
+.hero-figure-column {
+  min-height: var(--hero-image-min-height);
+}
+@media (min-width: 768px) {
+  .hero-figure-column {
+    min-height: var(--hero-image-min-height-md);
+  }
+}
+@media (min-width: 1024px) {
+  .hero-figure-column {
+    min-height: var(--hero-image-min-height-lg);
+  }
+}
+
+.hero-figure-inner {
+  min-height: var(--hero-image-min-height);
+  height: var(--hero-image-min-height);
+}
+@media (min-width: 768px) {
+  .hero-figure-inner {
+    min-height: var(--hero-image-min-height-md);
+    height: var(--hero-image-min-height-md);
+  }
+}
+@media (min-width: 1024px) {
+  .hero-figure-inner {
+    min-height: var(--hero-image-min-height-lg);
+    height: var(--hero-image-min-height-lg);
+  }
+}
+
+/* Hero figure image: object-fit and object-position (pan/crop within the frame) */
+.hero-figure-img {
+  object-fit: var(--hero-image-object-fit);
+  object-position: var(--hero-image-object-position);
+  opacity: var(--hero-image-opacity);
+}
+
+/* Hide scrollbar for carousels while keeping scroll */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply antialiased text-gray-900;
+    font-family: var(--font-sans);
+    background-color: var(--color-page-bg);
+  }
+}
