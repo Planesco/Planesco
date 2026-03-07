@@ -43,12 +43,11 @@ export default async function OurApproach() {
         fontFamily: "var(--font-hero)",
       }}
     >
-      {/* Blue box 1437×698: under How We Work and under contact form */}
+      {/* Blue box: under How We Work and under contact form; taller on mobile so Our Approach stays inside it */}
       <div
-        className="absolute left-1/2 z-0 -translate-x-1/2 w-full max-w-[1920px] bg-[#D7E6EA]"
+        className="absolute left-1/2 z-0 -translate-x-1/2 w-full max-w-[1920px] bg-[#D7E6EA] min-h-[1000px] md:min-h-0 md:h-[820px]"
         style={{
           top: "-90px",
-          height: "820px",
         }}
         aria-hidden
       />
@@ -56,7 +55,7 @@ export default async function OurApproach() {
       {/* Content on top of the blue box */}
       <div className="relative z-10">
         {/* Two columns: Our approach left, Client Perspective right, equal side spacing */}
-        <div className="mx-auto flex max-w-[1200px] flex-col gap-12 px-6 pb-16 sm:px-10 lg:flex-row lg:items-start lg:justify-between lg:gap-12 lg:px-12">
+        <div className="mx-auto flex max-w-[1200px] flex-col gap-20 px-6 pb-16 sm:px-10 lg:flex-row lg:items-start lg:justify-between lg:gap-12 lg:px-12">
           {/* Left: Our approach heading + 5 paragraphs */}
           <div className="flex max-w-[565px] flex-col gap-6 lg:flex-1">
             <h2
