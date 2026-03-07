@@ -12,12 +12,11 @@
   },
   "hero": {
     "headline": "Maîtrise, prévisibilité et\nconformité à toutes les phases\nd'un projet de construction.",
-    "headlineMobile": "Maîtrise, \nprévisibilité et\nconformité à toutes les\nphases\nd'un projet de construction.",
     "predictability": "prévisibilité",
     "cta": "Notre approche"
   },
   "metrics": {
-    "stat1Value": "70+",
+    "stat1Value": "15+",
     "stat1Label": "Années d'expérience industrielle",
     "stat2Value": "30+",
     "stat2Label": "Projets gérés",

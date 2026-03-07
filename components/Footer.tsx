@@ -20,6 +20,7 @@ export default async function Footer() {
             width={282}
             height={48}
             className="mx-auto h-12 w-auto object-contain"
+            style={{ width: "auto", height: "auto" }}
           />
         </Link>
         <p

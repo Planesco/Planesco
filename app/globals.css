@@ -53,9 +53,38 @@
   /* Hero bottom overlay: the gradient bar above the next section (height and opacity) */
   --hero-bottom-overlay-height: 80px;
   --hero-bottom-overlay-opacity: 1;
+  /* Hero background height: shrink so the figure sits on the bottom of the bg (e.g. 80%, 82%, 85%) */
+  --hero-bg-height: 82%;
+  /* Mobile only: hero figure size and position. Offset-x: positive = right, negative = left. Offset-y: positive = down. */
+  --hero-figure-mobile-scale: 1.45;
+  --hero-figure-mobile-max-width: 420px;
+  --hero-figure-mobile-max-height: 52vh;
+  --hero-figure-mobile-offset-x: 60px;
+  --hero-figure-mobile-offset-y: 70px;
 }
 
-/* Hero figure column: uses the variables above for responsive height */
+/* Hero headline: fluid font size so 3 lines always fit; shrinks on small screens */
+.hero-headline-wrap {
+  container-type: inline-size;
+  container-name: hero-headline;
+}
+/* Keep exactly 3 lines: each line is nowrap, font-size scales to fit container */
+.hero-headline {
+  font-size: clamp(18px, 4.6cqi + 10px, 64px);
+}
+
+@container hero-headline (min-width: 640px) {
+  .hero-headline {
+    font-size: clamp(46px, 5.5cqi + 12px, 56px);
+  }
+}
+@container hero-headline (min-width: 1024px) {
+  .hero-headline {
+    font-size: clamp(56px, 6cqi + 8px, 64px);
+  }
+}
+
+/* Hero figure column: full height so figure can sit at bottom of hero */
 .hero-figure-column {
   min-height: var(--hero-image-min-height);
 }
@@ -87,11 +116,23 @@
   }
 }
 
-/* Mobile: confine figure to lower half of hero so it doesn't overlap headline/CTA */
+/* Mobile: figure container sized so it can reach under hero text; scale and size via theme variables */
 .hero-figure-mobile {
   height: 50vh;
   min-height: 280px;
   max-height: 380px;
+}
+@media (max-width: 767px) {
+  .hero-figure-mobile {
+    --hero-image-scale: var(--hero-figure-mobile-scale);
+    --hero-image-offset-x: var(--hero-figure-mobile-offset-x);
+    --hero-image-offset-y: var(--hero-figure-mobile-offset-y);
+    max-width: min(100%, var(--hero-figure-mobile-max-width));
+    max-height: var(--hero-figure-mobile-max-height);
+    min-height: 320px;
+    height: var(--hero-figure-mobile-max-height);
+    transform-origin: bottom right;
+  }
 }
 @media (min-width: 768px) {
   .hero-figure-mobile {

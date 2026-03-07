@@ -42,7 +42,7 @@ export default async function MetricsCard() {
           >
             <span
               className="text-3xl font-extrabold leading-[110%] tracking-[-0.04em] md:text-[56px]"
-              style={i === 0 ? { color: "#2dd4bf" } : gradientStyle}
+              style={gradientStyle}
             >
               {stat.value}
             </span>

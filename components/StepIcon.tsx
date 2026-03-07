@@ -26,6 +26,7 @@ export default function StepIcon({ src, stepNumber }: StepIconProps) {
       width={28}
       height={28}
       className="object-contain"
+      style={{ width: "auto", height: "auto" }}
       onError={() => setFailed(true)}
     />
   );

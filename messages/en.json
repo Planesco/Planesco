@@ -12,12 +12,11 @@
   },
   "hero": {
     "headline": "Control, predictability, and\ncompliance across all phases\nof a construction project.",
-    "headlineMobile": "Control, \npredictability, and\ncompliance across all\nphases\nof a construction project.",
     "predictability": "predictability",
     "cta": "Our Approach"
   },
   "metrics": {
-    "stat1Value": "70+",
+    "stat1Value": "15+",
     "stat1Label": "Years of Industrial Experience",
     "stat2Value": "30+",
     "stat2Label": "Projects Managed",
