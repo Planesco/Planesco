@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import StepIcon from "./StepIcon";
+import HowWeWorkCarousel from "./HowWeWorkCarousel";
 
 const STEP_ICONS = [
   "/icons/assessment.png",   // 1. Assessment
@@ -43,7 +44,9 @@ export default async function HowWeWork() {
             </p>
           </div>
 
-          <div className="grid w-full gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <HowWeWorkCarousel steps={steps} icons={STEP_ICONS} />
+
+          <div className="hidden w-full gap-8 md:grid md:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, i) => (
               <div
                 key={step.title}
