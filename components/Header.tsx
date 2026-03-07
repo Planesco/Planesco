@@ -35,7 +35,7 @@ export default function Header() {
           type="button"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
-          className="flex flex-col justify-center gap-1.5 p-2 text-[var(--color-lime)] md:hidden"
+          className="flex flex-col justify-center gap-1.5 p-2 text-white md:hidden"
           onClick={() => setMenuOpen((o) => !o)}
         >
           <span className="block h-0.5 w-6 bg-current rounded" aria-hidden />

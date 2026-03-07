@@ -10,6 +10,8 @@ const gradientStyle = {
   backgroundClip: "text" as const,
 };
 
+const tealStyle = { color: "#2dd4bf" };
+
 const cardShadow =
   "0px 53px 21px rgba(152, 225, 191, 0.01), 0px 30px 18px rgba(152, 225, 191, 0.05), 0px 13px 13px rgba(152, 225, 191, 0.09), 0px 3px 7px rgba(152, 225, 191, 0.1)";
 
@@ -86,7 +88,7 @@ export default function MetricsCarousel({ stats }: { stats: Stat[] }) {
           >
             <span
               className="text-[40px] font-extrabold leading-[110%] tracking-[-0.04em]"
-              style={gradientStyle}
+              style={i === 0 ? tealStyle : gradientStyle}
             >
               {stat.value}
             </span>
