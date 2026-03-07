@@ -13,7 +13,11 @@ export function middleware(request: NextRequest) {
   const locale = getLocaleFromPathname(pathname);
 
   if (locale) {
-    return NextResponse.next();
+    const requestHeaders = new Headers(request.headers);
+    requestHeaders.set("x-next-intl-locale", locale);
+    return NextResponse.next({
+      request: { headers: requestHeaders },
+    });
   }
 
   const newPath =
