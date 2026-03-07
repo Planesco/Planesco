@@ -24,8 +24,9 @@ export default async function HowWeWork() {
         className="mx-auto max-w-[1199px] overflow-hidden rounded-[62px] px-6 py-[50px] md:px-14 md:py-16"
         style={{
           background: "url('/hero-bg.png'), rgba(32, 32, 39, 0.92)",
-          backgroundSize: "120%",
+          backgroundSize: "cover",
           backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
           backgroundBlendMode: "multiply",
           backdropFilter: "blur(45px)",
           fontFamily: "var(--font-hero)",
