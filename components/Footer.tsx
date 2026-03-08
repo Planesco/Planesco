@@ -19,8 +19,8 @@ export default async function Footer() {
             alt="PLANESCO"
             width={282}
             height={48}
-            className="mx-auto h-12 w-auto object-contain"
-            style={{ width: "auto" }}
+            className="mx-auto object-contain"
+            style={{ width: "auto", height: "3rem" }}
           />
         </Link>
         <p
