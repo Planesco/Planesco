@@ -40,6 +40,9 @@ export default function ContactForm({ transparentBg }: ContactFormProps = {}) {
     setStatus("loading");
     setErrorMessage("");
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -51,20 +54,47 @@ export default function ContactForm({ transparentBg }: ContactFormProps = {}) {
           subject: (formData.get("subject") as string)?.trim() || "",
           message,
         }),
+        signal: controller.signal,
       });
 
-      const data = await res.json().catch(() => ({}));
+      clearTimeout(timeoutId);
+
+      let data: { error?: string; code?: string } = {};
+      const text = await res.text();
+      if (text) {
+        try {
+          data = JSON.parse(text) as { error?: string; code?: string };
+        } catch {
+          data = { error: t("errorGeneric") };
+        }
+      }
 
       if (!res.ok) {
         setStatus("error");
-        setErrorMessage((data.error as string) || t("errorGeneric"));
+        const msg = data.error || t("errorGeneric");
+        if (data.code === "INVALID_EMAIL") {
+          setErrorMessage(t("errorInvalidEmail"));
+        } else if (data.code === "VALIDATION_ERROR" || res.status === 400) {
+          setErrorMessage(msg);
+        } else if (res.status >= 500) {
+          setErrorMessage(t("errorServer"));
+        } else {
+          setErrorMessage(msg);
+        }
         return;
       }
 
       setStatus("success");
       form.reset();
-    } catch {
+    } catch (err) {
+      clearTimeout(timeoutId);
       setStatus("error");
+      if (err instanceof Error) {
+        if (err.name === "AbortError") {
+          setErrorMessage(t("errorTimeout"));
+          return;
+        }
+      }
       setErrorMessage(t("errorNetwork"));
     }
   }

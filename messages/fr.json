@@ -1,7 +1,8 @@
 {
   "metadata": {
-    "title": "PLANESCO – Conseil en construction industrielle",
-    "description": "Maîtrise, prévisibilité et conformité à toutes les phases d'un projet de construction."
+    "title": "PLANESCO – Conseil en construction industrielle | Gestion et planification de projets",
+    "description": "PLANESCO propose du conseil en construction industrielle, de la gestion de projet et de la planification. Maîtrise, prévisibilité et conformité à toutes les phases de votre projet de construction.",
+    "keywords": "gestion de projet, planification de projet, Planesco, PLANESCO, conseil construction industrielle, gestion de projet construction, contrôle de projet, planification et ordonnancement, projets industriels"
   },
   "header": {
     "services": "Services",
@@ -68,7 +69,10 @@
     "success": "Message envoyé. Nous vous recontacterons bientôt.",
     "errorRequired": "Veuillez remplir tous les champs obligatoires (Nom, E-mail, Message).",
     "errorGeneric": "Une erreur s'est produite. Veuillez réessayer.",
-    "errorNetwork": "Erreur réseau. Veuillez réessayer.",
+    "errorNetwork": "Erreur réseau. Vérifiez votre connexion et réessayez.",
+    "errorInvalidEmail": "Veuillez entrer une adresse e-mail valide.",
+    "errorServer": "Notre service d'envoi est temporairement indisponible. Réessayez plus tard ou écrivez-nous directement.",
+    "errorTimeout": "La requête a pris trop de temps. Réessayez ou écrivez-nous directement.",
     "orEmail": "Ou écrivez-nous à :",
     "sectionTitle1": "Parlez à un",
     "sectionTitle2": "expert en",

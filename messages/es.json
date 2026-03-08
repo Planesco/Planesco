@@ -1,7 +1,8 @@
 {
   "metadata": {
-    "title": "PLANESCO – Consultoría de construcción industrial",
-    "description": "Control, predictibilidad y cumplimiento en todas las fases de un proyecto de construcción."
+    "title": "PLANESCO – Consultoría de construcción industrial | Gestión y planificación de proyectos",
+    "description": "PLANESCO ofrece consultoría en construcción industrial, gestión de proyectos y planificación. Control, predictibilidad y cumplimiento en todas las fases de tu proyecto de construcción.",
+    "keywords": "gestión de proyectos, planificación de proyectos, Planesco, PLANESCO, consultoría construcción industrial, gestión de proyectos de construcción, control de proyectos, planificación y programación, proyectos industriales"
   },
   "header": {
     "services": "Servicios",
@@ -68,7 +69,10 @@
     "success": "Mensaje enviado. Nos pondremos en contacto pronto.",
     "errorRequired": "Por favor completa todos los campos obligatorios (Nombre, Correo, Mensaje).",
     "errorGeneric": "Algo ha ido mal. Por favor, inténtalo de nuevo.",
-    "errorNetwork": "Error de red. Por favor, inténtalo de nuevo.",
+    "errorNetwork": "Error de red. Comprueba tu conexión e inténtalo de nuevo.",
+    "errorInvalidEmail": "Por favor introduce una dirección de correo válida.",
+    "errorServer": "Nuestro servicio de correo no está disponible temporalmente. Inténtalo más tarde o escríbenos directamente.",
+    "errorTimeout": "La solicitud ha tardado demasiado. Inténtalo de nuevo o escríbenos directamente.",
     "orEmail": "O escríbenos a:",
     "sectionTitle1": "Habla con un",
     "sectionTitle2": "experto en",

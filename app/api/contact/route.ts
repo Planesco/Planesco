@@ -5,51 +5,79 @@ const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "info@planesco.com";
 const FROM_EMAIL =
   process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MAX_BODY_LENGTH = 50_000;
+
+function validationError(message: string, code = "VALIDATION_ERROR") {
+  return NextResponse.json({ error: message, code }, { status: 400 });
+}
+
+function serverError(message: string, code = "SERVER_ERROR") {
+  return NextResponse.json({ error: message, code }, { status: 500 });
+}
+
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    const { name, email, message, phone, subject } = body;
-
-    if (!name || typeof name !== "string" || !name.trim()) {
-      return NextResponse.json(
-        { error: "Name is required." },
-        { status: 400 }
-      );
-    }
-    if (!email || typeof email !== "string" || !email.trim()) {
-      return NextResponse.json(
-        { error: "Email is required." },
-        { status: 400 }
-      );
-    }
-    if (!message || typeof message !== "string" || !message.trim()) {
-      return NextResponse.json(
-        { error: "Message is required." },
-        { status: 400 }
-      );
+    const contentType = request.headers.get("content-type") || "";
+    if (!contentType.includes("application/json")) {
+      return validationError("Request must be JSON.", "INVALID_CONTENT_TYPE");
     }
 
-    const emailSubject =
-      subject && String(subject).trim()
-        ? `[PLANESCO] ${String(subject).trim()}`
-        : "Contact from PLANESCO";
+    let body: unknown;
+    try {
+      body = await request.json();
+    } catch {
+      return validationError("Invalid JSON body.", "INVALID_JSON");
+    }
+
+    if (typeof body !== "object" || body === null) {
+      return validationError("Body must be an object.", "INVALID_BODY");
+    }
+
+    const { name, email, message, phone, subject } = body as Record<string, unknown>;
+
+    const nameStr = typeof name === "string" ? name.trim() : "";
+    const emailStr = typeof email === "string" ? email.trim() : "";
+    const messageStr = typeof message === "string" ? message.trim() : "";
+
+    if (!nameStr) {
+      return validationError("Name is required.");
+    }
+    if (!emailStr) {
+      return validationError("Email is required.");
+    }
+    if (!EMAIL_REGEX.test(emailStr)) {
+      return validationError("Please enter a valid email address.", "INVALID_EMAIL");
+    }
+    if (!messageStr) {
+      return validationError("Message is required.");
+    }
+
+    const payloadSize = JSON.stringify(body).length;
+    if (payloadSize > MAX_BODY_LENGTH) {
+      return validationError("Message too long.", "PAYLOAD_TOO_LARGE");
+    }
+
+    const subjectStr = subject && typeof subject === "string" ? String(subject).trim() : "";
+    const phoneStr = phone && typeof phone === "string" ? String(phone).trim() : "";
+
+    const emailSubject = subjectStr
+      ? `[PLANESCO] ${escapeHtml(subjectStr)}`
+      : "Contact from PLANESCO";
 
     const html = `
       <h2>New contact form submission</h2>
-      <p><strong>Name:</strong> ${escapeHtml(name.trim())}</p>
-      <p><strong>Email:</strong> ${escapeHtml(email.trim())}</p>
-      ${phone ? `<p><strong>Phone:</strong> ${escapeHtml(String(phone).trim())}</p>` : ""}
-      ${subject ? `<p><strong>Subject:</strong> ${escapeHtml(String(subject).trim())}</p>` : ""}
+      <p><strong>Name:</strong> ${escapeHtml(nameStr)}</p>
+      <p><strong>Email:</strong> ${escapeHtml(emailStr)}</p>
+      ${phoneStr ? `<p><strong>Phone:</strong> ${escapeHtml(phoneStr)}</p>` : ""}
+      ${subjectStr ? `<p><strong>Subject:</strong> ${escapeHtml(subjectStr)}</p>` : ""}
       <p><strong>Message:</strong></p>
-      <pre style="white-space: pre-wrap; font-family: sans-serif;">${escapeHtml(message.trim())}</pre>
+      <pre style="white-space: pre-wrap; font-family: sans-serif;">${escapeHtml(messageStr)}</pre>
     `;
 
     if (!process.env.RESEND_API_KEY) {
       console.error("RESEND_API_KEY is not set");
-      return NextResponse.json(
-        { error: "Email service is not configured." },
-        { status: 500 }
-      );
+      return serverError("Email service is not configured.", "CONFIG_ERROR");
     }
 
     const resend = new Resend(process.env.RESEND_API_KEY);
@@ -62,19 +90,13 @@ export async function POST(request: Request) {
 
     if (error) {
       console.error("Resend error:", error);
-      return NextResponse.json(
-        { error: "Failed to send email. Please try again later." },
-        { status: 500 }
-      );
+      return serverError("Failed to send email. Please try again later.", "EMAIL_FAILED");
     }
 
     return NextResponse.json({ success: true });
   } catch (e) {
     console.error("Contact API error:", e);
-    return NextResponse.json(
-      { error: "Something went wrong. Please try again." },
-      { status: 500 }
-    );
+    return serverError("Something went wrong. Please try again.", "SERVER_ERROR");
   }
 }
 

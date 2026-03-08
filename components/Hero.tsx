@@ -9,9 +9,9 @@ export default async function Hero() {
       className="relative flex min-h-[calc(100vh-140px)] w-full flex-col items-center justify-start overflow-hidden pt-12 pb-0 md:justify-center md:py-24 lg:py-[128px] px-6 md:px-12 lg:px-[120px]"
       style={{
         isolation: "isolate",
-        ["--hero-bg-position-x" as string]: "center",
-        ["--hero-bg-position-y" as string]: "60%",
-        ["--hero-bg-height" as string]: "85%",
+        ["--hero-bg-position-x" as string]: "left",
+        ["--hero-bg-position-y" as string]: "50%",
+        ["--hero-bg-height" as string]: "110%",
       }}
     >
       {/* Hero background: height from --hero-bg-height so figure can sit on its bottom */}
@@ -33,6 +33,28 @@ export default async function Hero() {
           backgroundBlendMode: "normal, multiply, normal, normal",
         }}
       />
+      {/* Top-left decorative glow (mobile + desktop). Tune in globals.css via --hero-top-left-* */}
+      <div
+        className="hero-top-left-accent pointer-events-none absolute left-0 top-0 z-[1] md:block"
+        style={{
+          left: "var(--hero-top-left-left)",
+          top: "var(--hero-top-left-top)",
+          width: "var(--hero-top-left-width)",
+          transform: "translate(var(--hero-top-left-offset-x), var(--hero-top-left-offset-y)) scale(var(--hero-top-left-scale))",
+          opacity: "var(--hero-top-left-opacity)",
+        }}
+        aria-hidden
+      >
+        <Image
+          src="/hero-top-left.png"
+          alt=""
+          width={400}
+          height={300}
+          className="h-auto w-full object-contain object-left-top"
+          style={{ width: "100%", height: "auto" }}
+        />
+      </div>
+
       {/* Faded green glow at the right edge of the screen */}
       <div
         className="pointer-events-none absolute right-0 top-1/2 z-[1] h-[326px] w-[381px] -translate-y-1/2 rounded-full opacity-60 blur-[155px] md:blur-[155px]"
@@ -43,6 +65,54 @@ export default async function Hero() {
         }}
         aria-hidden
       />
+
+      {/* Bottom-right accent: mobile only (tune in globals.css via --hero-accent-mobile-*) */}
+      <div
+        className="hero-accent-mobile pointer-events-none absolute right-0 bottom-0 z-[1] block md:hidden"
+        style={{
+          width: "var(--hero-accent-mobile-width)",
+          height: "var(--hero-accent-mobile-height)",
+          right: "var(--hero-accent-mobile-right)",
+          bottom: "var(--hero-accent-mobile-bottom)",
+          top: "var(--hero-accent-mobile-top)",
+          transform: "translate(var(--hero-accent-mobile-offset-x), var(--hero-accent-mobile-offset-y)) scale(var(--hero-accent-mobile-scale)) rotate(var(--hero-accent-mobile-rotate))",
+          opacity: "var(--hero-accent-mobile-opacity)",
+        }}
+        aria-hidden
+      >
+        <Image
+          src="/hero-accent.png"
+          alt=""
+          width={400}
+          height={300}
+          className="h-full w-full object-contain"
+          style={{ width: "100%", height: "auto", objectPosition: "right bottom" }}
+        />
+      </div>
+
+      {/* Bottom-right accent: desktop only (tune in globals.css via --hero-accent-*) */}
+      <div
+        className="hero-accent pointer-events-none absolute right-0 bottom-0 z-[1] hidden md:block"
+        style={{
+          width: "var(--hero-accent-width, 280px)",
+          height: "var(--hero-accent-height, auto)",
+          right: "var(--hero-accent-right, 0px)",
+          bottom: "var(--hero-accent-bottom, 10%)",
+          top: "var(--hero-accent-top, auto)",
+          transform: "translate(var(--hero-accent-offset-x, 0), var(--hero-accent-offset-y, 0)) scale(var(--hero-accent-scale, 1)) rotate(var(--hero-accent-rotate, 0deg))",
+          opacity: "var(--hero-accent-opacity, 0.9)",
+        }}
+        aria-hidden
+      >
+        <Image
+          src="/hero-accent.png"
+          alt=""
+          width={400}
+          height={300}
+          className="h-full w-full object-contain"
+          style={{ width: "100%", height: "auto", objectPosition: "right bottom" }}
+        />
+      </div>
 
       {/* Worker figure: full-height column so figure sits at the very bottom of the hero */}
       <div className="hero-figure-column absolute inset-0 z-[1] flex items-end justify-end pr-0 md:items-center md:pr-6 lg:pr-8 xl:pr-10">
@@ -56,27 +126,41 @@ export default async function Hero() {
             transform: "translate(var(--hero-image-offset-x, 0), var(--hero-image-offset-y, 0)) scale(var(--hero-image-scale, 1))",
           }}
         >
+          {/* Mobile: first image (dark bg, neon elements) */}
           <Image
-            src="/hero-figure.png"
+            src="/hero-figure-mobile.png"
             alt=""
             width={1100}
             height={752}
-            className="hero-figure-img h-full w-full object-contain object-right object-bottom md:object-center"
+            className="hero-figure-img h-full w-full object-contain object-right object-bottom md:object-center md:hidden"
             priority
+            quality={92}
             style={{ opacity: "var(--hero-image-opacity, 1)" }}
-            sizes="(max-width: 767px) 620px, (max-width: 1023px) 800px, 1280px"
+            sizes="(max-width: 767px) 620px, 620px"
+          />
+          {/* Desktop: second image (industrial background, overlaid icons). For sharper result at large sizes, use a 2x source (e.g. 1964×1306) and set width/height to match. */}
+          <Image
+            src="/hero-figure.png"
+            alt=""
+            width={982}
+            height={653}
+            className="hero-figure-img h-full w-full object-contain object-right object-bottom md:object-center hidden md:block"
+            priority
+            quality={92}
+            style={{ opacity: "var(--hero-image-opacity, 1)" }}
+            sizes="(max-width: 1023px) 800px, min(100vw, 1280px)"
           />
         </div>
       </div>
 
-      {/* Text overlay: on mobile at top above figure; desktop centered */}
+      {/* Text overlay: centered on mobile; left-aligned on desktop */}
       <div
-        className="relative z-10 mx-auto flex w-full max-w-[1920px] flex-col items-start justify-start pt-0 md:justify-center md:pt-0 pl-4 pr-4 md:pl-12 lg:pl-16 xl:pl-20"
+        className="relative z-10 mx-auto flex w-full max-w-[1920px] flex-col items-center justify-start pt-0 md:justify-center md:pt-0 px-4 md:pl-12 md:pr-12 lg:pl-16 lg:pr-16 xl:pl-20 xl:pr-20 md:items-start"
         style={{ fontFamily: "var(--font-hero)" }}
       >
-        <div className="hero-headline-wrap flex max-w-[960px] flex-col gap-4 w-full">
+        <div className="hero-headline-wrap flex max-w-[960px] flex-col gap-4 w-full items-center text-center md:items-start md:text-left">
           <h1
-            className="hero-headline font-semibold leading-[1.12] tracking-[-0.02em] text-white"
+            className="hero-headline font-semibold leading-[1.12] tracking-[-0.02em] text-white text-center md:text-left"
             style={{ fontFamily: "var(--font-hero)" }}
           >
             {(() => {
@@ -117,13 +201,11 @@ export default async function Hero() {
           <div className="pt-4">
             <Link
               href="#our-approach"
-              className="inline-flex items-center justify-center rounded-full px-[52px] py-[18px] font-bold text-[#1C1E1F] transition-opacity hover:opacity-90"
+              className="inline-flex items-center justify-center rounded-full px-8 py-3 text-sm leading-5 md:px-[52px] md:py-[18px] md:text-[18px] md:leading-[20px] font-bold text-[#1C1E1F] transition-opacity hover:opacity-90"
               style={{
                 backgroundColor: "#B9E629",
                 borderRadius: "58px",
                 fontFamily: "var(--font-hero)",
-                fontSize: "18px",
-                lineHeight: "20px",
                 letterSpacing: "-0.02em",
                 textTransform: "capitalize",
               }}
@@ -134,11 +216,12 @@ export default async function Hero() {
         </div>
       </div>
 
+      {/* Hard cutoff: solid bar so hero background ends sharply ~halfway through the metrics (15+ Years) section */}
       <div
-        className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white to-transparent pointer-events-none"
+        className="absolute bottom-0 left-0 right-0 pointer-events-none"
         style={{
-          height: "var(--hero-bottom-overlay-height, 80px)",
-          opacity: "var(--hero-bottom-overlay-opacity, 1)",
+          height: "var(--hero-bottom-overlay-height, 120px)",
+          backgroundColor: "var(--color-page-bg, #EBF2F1)",
         }}
         aria-hidden
       />

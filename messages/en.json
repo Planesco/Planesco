@@ -1,7 +1,8 @@
 {
   "metadata": {
-    "title": "PLANESCO – Industrial Construction Consulting",
-    "description": "Control, predictability, and compliance across all phases of a construction project."
+    "title": "PLANESCO – Industrial Construction Consulting | Project Management & Planning",
+    "description": "PLANESCO delivers industrial construction consulting, project management, and project planning. Control, predictability, and compliance across all phases of your construction project. Expert project controls and planning.",
+    "keywords": "project management, project planning, Planesco, PLANESCO, industrial construction consulting, construction project management, project controls, planning and scheduling, industrial projects, construction consulting, project delivery, safety by design, construction execution"
   },
   "header": {
     "services": "Services",
@@ -68,7 +69,10 @@
     "success": "Message sent. We'll be in touch soon.",
     "errorRequired": "Please fill in all required fields (Name, Email, Message).",
     "errorGeneric": "Something went wrong. Please try again.",
-    "errorNetwork": "Network error. Please try again.",
+    "errorNetwork": "Network error. Please check your connection and try again.",
+    "errorInvalidEmail": "Please enter a valid email address.",
+    "errorServer": "Our email service is temporarily unavailable. Please try again later or email us directly.",
+    "errorTimeout": "The request took too long. Please try again or email us directly.",
     "orEmail": "Or email us at:",
     "sectionTitle1": "Talk to an",
     "sectionTitle2": "Industrial",

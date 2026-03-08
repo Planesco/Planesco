@@ -33,10 +33,12 @@
   --font-sans: "DM Sans", system-ui, sans-serif;
   --font-hero: "Plus Jakarta Sans", system-ui, sans-serif;
 
-  /* Hero image: all values in px so you can adjust by pixel */
-  --hero-image-offset-x: 100px;
-  --hero-image-offset-y: -20px;
+  /* Hero image: all values in px so you can adjust by pixel. offset-x: positive = right, negative = left. offset-y: negative = up, positive = down */
+  --hero-image-offset-x: 0px;
+  --hero-image-offset-y: -60px;
   --hero-image-scale: 1;
+  /* Desktop only: scale the figure (e.g. 1.2 = 20% bigger). Only applies from 768px and up. */
+  --hero-image-scale-desktop: 1.1;
   --hero-image-max-width: 1280px;
   --hero-image-min-height: 400px;
   --hero-image-min-height-md: 520px;
@@ -50,17 +52,51 @@
   --hero-image-object-fit: contain;
   --hero-image-object-position: right center;
   --hero-image-opacity: 1;
-  /* Hero bottom overlay: the gradient bar above the next section (height and opacity) */
-  --hero-bottom-overlay-height: 80px;
-  --hero-bottom-overlay-opacity: 1;
+  /* Hero bottom overlay: solid bar for hard cutoff (height positions the line; ~halfway through metrics card) */
+  --hero-bottom-overlay-height: 0px;
+  /* Hero accent desktop (curved shape bottom-right, 768px+).
+   * Move: --hero-accent-right, --hero-accent-bottom (or --hero-accent-top), --hero-accent-offset-x, --hero-accent-offset-y.
+   * Size: --hero-accent-width, --hero-accent-scale. Tilt: --hero-accent-rotate. Fade: --hero-accent-opacity. */
+  --hero-accent-width: 520px;
+  --hero-accent-height: auto;
+  --hero-accent-right: 0px;
+  --hero-accent-bottom: 10%;
+  --hero-accent-top: auto;
+  --hero-accent-offset-x: 0px;
+  --hero-accent-offset-y: 120px;
+  --hero-accent-scale: 1;
+  --hero-accent-rotate: 0deg;
+  --hero-accent-opacity: 0.9;
+
+  /* Hero accent mobile (same asset, bottom-right, below 768px). Control separately from desktop. */
+  --hero-accent-mobile-width: 220px;
+  --hero-accent-mobile-height: auto;
+  --hero-accent-mobile-right: 0px;
+  --hero-accent-mobile-bottom: 5%;
+  --hero-accent-mobile-top: auto;
+  --hero-accent-mobile-offset-x: 0px;
+  --hero-accent-mobile-offset-y: 0px;
+  --hero-accent-mobile-scale: 1;
+  --hero-accent-mobile-rotate: 0deg;
+  --hero-accent-mobile-opacity: 0.9;
   /* Hero background height: shrink so the figure sits on the bottom of the bg (e.g. 80%, 82%, 85%) */
   --hero-bg-height: 82%;
-  /* Mobile only: hero figure size and position. Offset-x: positive = right, negative = left. Offset-y: positive = down. */
-  --hero-figure-mobile-scale: 1.45;
+  /* Mobile only: hero figure size and position. Offset-x: positive = right, negative = left. Offset-y: positive = down, negative = up. */
+  --hero-figure-mobile-scale: 1.50;
   --hero-figure-mobile-max-width: 420px;
   --hero-figure-mobile-max-height: 52vh;
-  --hero-figure-mobile-offset-x: 60px;
-  --hero-figure-mobile-offset-y: 70px;
+  --hero-figure-mobile-offset-x: 35px;
+  --hero-figure-mobile-offset-y: -25px;
+
+  /* Hero top-left accent (glow shape). Position: left, top, offset-x, offset-y. Size: width, scale. */
+  --hero-top-left-left: 0px;
+  --hero-top-left-top: 0px;
+  --hero-top-left-offset-x: 20px;
+  --hero-top-left-offset-y: -10px;
+  --hero-top-left-width: 280px;
+  --hero-top-left-width-desktop: 380px;
+  --hero-top-left-scale: 1.2;
+  --hero-top-left-opacity: 0.85;
 }
 
 /* Hero headline: fluid font size so 3 lines always fit; shrinks on small screens */
@@ -70,17 +106,24 @@
 }
 /* Keep exactly 3 lines: each line is nowrap, font-size scales to fit container */
 .hero-headline {
-  font-size: clamp(18px, 4.6cqi + 10px, 64px);
+  font-size: clamp(20px, 4.8cqi + 12px, 68px);
 }
 
 @container hero-headline (min-width: 640px) {
   .hero-headline {
-    font-size: clamp(46px, 5.5cqi + 12px, 56px);
+    font-size: clamp(50px, 5.8cqi + 14px, 62px);
   }
 }
 @container hero-headline (min-width: 1024px) {
   .hero-headline {
-    font-size: clamp(56px, 6cqi + 8px, 64px);
+    font-size: clamp(60px, 6.5cqi + 10px, 72px);
+  }
+}
+
+/* Hero top-left accent: desktop uses larger width */
+@media (min-width: 768px) {
+  .hero-top-left-accent {
+    width: var(--hero-top-left-width-desktop);
   }
 }
 
@@ -136,6 +179,7 @@
 }
 @media (min-width: 768px) {
   .hero-figure-mobile {
+    --hero-image-scale: var(--hero-image-scale-desktop);
     height: var(--hero-image-min-height-md);
     min-height: var(--hero-image-min-height-md);
     max-height: none;
@@ -153,6 +197,9 @@
   object-fit: var(--hero-image-object-fit);
   object-position: var(--hero-image-object-position);
   opacity: var(--hero-image-opacity);
+  /* Sharper rendering when scaled (WebKit); slight contrast so upscaled areas feel less soft */
+  image-rendering: -webkit-optimize-contrast;
+  filter: contrast(1.04) saturate(1.03);
 }
 
 /* Hide scrollbar for carousels while keeping scroll */

@@ -21,15 +21,15 @@ export default async function MetricsCard() {
     <section className="relative z-10 -mt-12 px-6 md:-mt-14 lg:-mt-16">
       <MetricsCarousel stats={stats} />
       <div
-        className="mx-auto hidden w-full max-w-[1048px] items-stretch rounded-[14px] bg-white md:flex"
+        className="mx-auto hidden w-full max-w-[1200px] items-stretch rounded-[18px] bg-white md:flex"
         style={{
-          width: "min(100%, 1048px)",
-          minHeight: 147,
-          paddingTop: 24,
-          paddingRight: 80,
-          paddingBottom: 34,
-          paddingLeft: 80,
-          gap: 54,
+          width: "min(100%, 1200px)",
+          minHeight: 180,
+          paddingTop: 32,
+          paddingRight: 88,
+          paddingBottom: 40,
+          paddingLeft: 88,
+          gap: 64,
           boxShadow:
             "0px 53px 21px rgba(152, 225, 191, 0.01), 0px 30px 18px rgba(152, 225, 191, 0.05), 0px 13px 13px rgba(152, 225, 191, 0.09), 0px 3px 7px rgba(152, 225, 191, 0.1)",
           fontFamily: "var(--font-hero)",
@@ -41,12 +41,12 @@ export default async function MetricsCard() {
             className="flex flex-1 flex-col items-center justify-center text-center border-r border-[#E0E0E0] last:border-r-0"
           >
             <span
-              className="text-3xl font-extrabold leading-[110%] tracking-[-0.04em] md:text-[56px]"
+              className="text-4xl font-extrabold leading-[110%] tracking-[-0.04em] md:text-[64px]"
               style={gradientStyle}
             >
               {stat.value}
             </span>
-            <p className="mt-1 text-base font-normal leading-7 text-[#4A6372]">
+            <p className="mt-2 text-lg font-normal leading-7 text-[#4A6372]">
               {stat.label}
             </p>
           </div>
