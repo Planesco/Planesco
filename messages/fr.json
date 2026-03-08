@@ -26,11 +26,14 @@
   },
   "services": {
     "title": "Services",
-    "projectManagement": "Gestion de projet",
+    "projectManagement": "Gestion de\nprojet",
     "planningControls": "Planification &\nContrôle de projet",
     "planningControlsDesc": "Nous transformons les données du projet en informations claires et fiables pour une prise de décision en temps utile et un contrôle proactif du projet.",
     "safetyByDesign": "Sécurité par la conception (SBD)",
-    "aiTools": "IA\nOutils"
+    "aiTools": "IA\nOutils",
+    "clickToFlip": "Cliquez sur une carte pour la retourner et en savoir plus.",
+    "clickToRevealDescription": "Cliquez pour afficher la description",
+    "descriptionPlaceholder": "Plus d'informations à venir."
   },
   "howWeWork": {
     "title": "Comment nous travaillons",

@@ -6,7 +6,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 function getScrollIndex(el: HTMLDivElement, count: number): number {
   const scrollLeft = el.scrollLeft;
-  const step = el.offsetWidth; // one card = full width, no gap
+  const step = el.offsetWidth;
   const index = Math.round(scrollLeft / step);
   return Math.max(0, Math.min(index, count - 1));
 }
@@ -15,30 +15,27 @@ export default function Services() {
   const t = useTranslations("services");
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+
   const services = [
     {
       title: t("projectManagement"),
       icon: "/icons/project-management.png",
-      description: null,
-      lime: true,
+      description: null as string | null,
     },
     {
       title: t("planningControls"),
-      icon: null,
+      icon: "/icons/planning-project-controls.png",
       description: t("planningControlsDesc"),
-      lime: false,
     },
     {
       title: t("safetyByDesign"),
       icon: "/icons/safety-by-design.png",
       description: null,
-      lime: true,
     },
     {
       title: t("aiTools"),
       icon: "/icons/ai-tools.png",
       description: null,
-      lime: true,
     },
   ];
 
@@ -85,6 +82,125 @@ export default function Services() {
     setActiveIndex(index);
   };
 
+  const cardSize = {
+    height: "244px",
+    borderRadius: "24px",
+    padding: 0,
+    boxShadow: cardShadow,
+    background: "#B9E629",
+    overflow: "hidden" as const,
+  };
+
+  function ServiceCard({
+    s,
+    className,
+  }: {
+    s: (typeof services)[number];
+    className?: string;
+  }) {
+    const [isFlipped, setIsFlipped] = useState(false);
+
+    const handleFlip = () => setIsFlipped((prev) => !prev);
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handleFlip();
+      }
+    };
+
+    const backContent = s.description ?? t("descriptionPlaceholder");
+
+    return (
+      <div
+        className={className ?? ""}
+        style={{ width: "100%", height: cardSize.height }}
+      >
+        <div
+          role="button"
+          tabIndex={0}
+          aria-label={t("clickToFlip")}
+          onClick={handleFlip}
+          onKeyDown={handleKeyDown}
+          className="relative w-full h-full cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-[#779516] focus-visible:ring-offset-2 rounded-[24px]"
+          style={{
+            ...cardSize,
+            perspective: "1000px",
+          }}
+        >
+          <div
+            className="relative w-full h-full rounded-[24px]"
+            style={{
+              transformStyle: "preserve-3d",
+              transition: "transform 0.5s ease",
+              transform: `rotateY(${isFlipped ? 180 : 0}deg)`,
+            }}
+          >
+            {/* Front face: lime, centered icon + title */}
+            <div
+              className="absolute inset-0 flex flex-col justify-center items-center gap-4 rounded-[24px] text-center p-5"
+              style={{
+                background: "#B9E629",
+                backfaceVisibility: "hidden",
+                transform: "rotateY(0deg)",
+              }}
+            >
+              {s.icon && (
+                <div
+                  className="flex shrink-0 h-[63px] items-center justify-center"
+                  style={{ color: "#779516" }}
+                  aria-hidden
+                >
+                  <Image
+                    src={s.icon}
+                    alt=""
+                    width={63}
+                    height={63}
+                    className="h-[62.79px] w-[62.79px] object-contain"
+                  />
+                </div>
+              )}
+              <h3
+                className="font-extrabold uppercase leading-[25px] text-[#1C1E1F]"
+                style={{ fontSize: "20px" }}
+              >
+                {s.title.split("\n").map((line, idx) => (
+                  <span key={idx}>
+                    {line}
+                    {idx < s.title.split("\n").length - 1 && <br />}
+                  </span>
+                ))}
+              </h3>
+            </div>
+            {/* Back face: white, title + description */}
+            <div
+              className="absolute inset-0 flex flex-col rounded-[24px] text-center p-5 overflow-auto"
+              style={{
+                background: "#ffffff",
+                backfaceVisibility: "hidden",
+                transform: "rotateY(180deg)",
+              }}
+            >
+              <h3
+                className="font-extrabold uppercase leading-[25px] text-[#1C1E1F] shrink-0"
+                style={{ fontSize: "20px" }}
+              >
+                {s.title.split("\n").map((line, idx) => (
+                  <span key={idx}>
+                    {line}
+                    {idx < s.title.split("\n").length - 1 && <br />}
+                  </span>
+                ))}
+              </h3>
+              <p className="mt-3 text-[14px] font-medium leading-[18px] text-[#596A73] min-h-[3rem]">
+                {backContent}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <section
       id="services"
@@ -110,51 +226,9 @@ export default function Services() {
               <div
                 key={s.title}
                 data-slide={i}
-                className="flex shrink-0 w-full min-w-full snap-center snap-always flex-col rounded-[24px]"
-                style={{
-                  height: "244px",
-                  borderRadius: "24px",
-                  paddingRight: "21px",
-                  paddingBottom: "32px",
-                  paddingLeft: "21px",
-                  paddingTop: "21px",
-                  background: s.lime ? "#B9E629" : "#FFFFFF",
-                  boxShadow: cardShadow,
-                  justifyContent: s.lime ? "flex-end" : "center",
-                  opacity: 1,
-                }}
+                className="flex shrink-0 w-full min-w-full snap-center snap-always"
               >
-                {s.lime && s.icon && (
-                  <div
-                    className="mb-5 flex shrink-0"
-                    style={{ color: "#779516" }}
-                    aria-hidden
-                  >
-                    <Image
-                      src={s.icon}
-                      alt=""
-                      width={63}
-                      height={63}
-                      className="h-[62.79px] w-[62.79px] object-contain"
-                    />
-                  </div>
-                )}
-                <h3
-                  className="font-extrabold uppercase leading-[25px] text-[#1C1E1F]"
-                  style={{ fontSize: "20px" }}
-                >
-                  {s.title.split("\n").map((line, idx) => (
-                    <span key={idx}>
-                      {line}
-                      {idx < s.title.split("\n").length - 1 && <br />}
-                    </span>
-                  ))}
-                </h3>
-                {s.description && (
-                  <p className="mt-3 text-[14px] font-medium leading-[18px] text-[#596A73]">
-                    {s.description}
-                  </p>
-                )}
+                <ServiceCard s={s} className="w-full" />
               </div>
             ))}
           </div>
@@ -174,60 +248,21 @@ export default function Services() {
         </div>
         {/* Desktop grid */}
         <div
-          className="hidden md:flex flex-nowrap justify-between"
+          className="hidden md:flex flex-nowrap justify-between items-stretch"
           style={{ gap: "20px" }}
         >
           {services.map((s) => (
             <div
               key={s.title}
-              className="flex w-full flex-col rounded-[24px] md:w-[280px] md:shrink-0"
-              style={{
-                height: "244px",
-                borderRadius: "24px",
-                paddingRight: "21px",
-                paddingBottom: "32px",
-                paddingLeft: "21px",
-                paddingTop: "21px",
-                background: s.lime ? "#B9E629" : "#FFFFFF",
-                boxShadow: cardShadow,
-                justifyContent: s.lime ? "flex-end" : "center",
-                opacity: 1,
-              }}
+              className="flex w-full md:w-[280px] md:shrink-0 items-stretch"
             >
-              {s.lime && s.icon && (
-                <div
-                  className="mb-5 flex shrink-0"
-                  style={{ color: "#779516" }}
-                  aria-hidden
-                >
-                  <Image
-                    src={s.icon}
-                    alt=""
-                    width={63}
-                    height={63}
-                    className="h-[62.79px] w-[62.79px] object-contain"
-                  />
-                </div>
-              )}
-              <h3
-                className="font-extrabold uppercase leading-[25px] text-[#1C1E1F]"
-                style={{ fontSize: "20px" }}
-              >
-                {s.title.split("\n").map((line, i) => (
-                  <span key={i}>
-                    {line}
-                    {i < s.title.split("\n").length - 1 && <br />}
-                  </span>
-                ))}
-              </h3>
-              {s.description && (
-                <p className="mt-3 text-[14px] font-medium leading-[18px] text-[#596A73]">
-                  {s.description}
-                </p>
-              )}
+              <ServiceCard s={s} className="w-full min-h-0" />
             </div>
           ))}
         </div>
+        <p className="mt-4 text-center text-sm text-[#596A73]">
+          {t("clickToRevealDescription")}
+        </p>
       </div>
     </section>
   );

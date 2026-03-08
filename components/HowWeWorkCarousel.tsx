@@ -37,29 +37,31 @@ export default function HowWeWorkCarousel({
       <div
         ref={scrollRef}
         onScroll={handleScroll}
-        className="flex snap-x snap-mandatory overflow-x-auto gap-4 pb-4 -mx-1 px-1 scroll-smooth"
+        className="flex snap-x snap-mandatory overflow-x-auto gap-4 pb-4 scroll-smooth"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {steps.map((step, i) => (
           <div
             key={step.title}
             data-how-step={i}
-            className="flex shrink-0 w-[calc(100vw-40px)] max-w-[320px] snap-center snap-always flex-col gap-3.5 rounded-xl bg-[#25262a]/80 backdrop-blur px-5 py-6 border border-[#D7E6EA]/20"
+            className="flex shrink-0 w-full min-w-full snap-center snap-always justify-center px-4"
           >
-            <div className="flex items-center gap-3">
-              <div
-                className="relative flex h-[45px] w-[45px] shrink-0 items-center justify-center rounded-full bg-[#B9E629] text-[18px] font-bold text-[#1C1E1F]"
-                aria-hidden
-              >
-                <StepIcon src={icons[i]} stepNumber={i + 1} />
+            <div className="flex w-[200px] aspect-square shrink-0 flex-col gap-2 rounded-xl bg-[#25262a]/80 backdrop-blur px-4 py-4 border border-[#D7E6EA]/20 overflow-hidden">
+              <div className="flex items-center gap-2 shrink-0">
+                <div
+                  className="relative flex h-[36px] w-[36px] shrink-0 items-center justify-center rounded-full bg-[#B9E629] text-[18px] font-bold text-[#1C1E1F]"
+                  aria-hidden
+                >
+                  <StepIcon src={icons[i]} stepNumber={i + 1} />
+                </div>
               </div>
+              <h3 className="text-[16px] font-semibold leading-tight text-[#D7E6EA] shrink-0">
+                {step.title}
+              </h3>
+              <p className="text-[12px] font-normal leading-[16px] text-[#C7CCD6] line-clamp-5 overflow-hidden">
+                {step.description}
+              </p>
             </div>
-            <h3 className="text-[20px] font-semibold leading-[25px] text-[#D7E6EA]">
-              {step.title}
-            </h3>
-            <p className="text-[14px] font-normal leading-[18px] text-[#C7CCD6]">
-              {step.description}
-            </p>
           </div>
         ))}
       </div>

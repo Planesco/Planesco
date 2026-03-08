@@ -33,9 +33,9 @@
   --font-sans: "DM Sans", system-ui, sans-serif;
   --font-hero: "Plus Jakarta Sans", system-ui, sans-serif;
 
-  /* Hero image: all values in px so you can adjust by pixel. offset-x: positive = right, negative = left. offset-y: negative = up, positive = down */
+  /* Hero image: all values in px so you can adjust by pixel. offset-x: positive = right, negative = left. offset-y: negative = up, positive = down. */
   --hero-image-offset-x: 0px;
-  --hero-image-offset-y: -60px;
+  --hero-image-offset-y: -170px;
   --hero-image-scale: 1;
   /* Desktop only: scale the figure (e.g. 1.2 = 20% bigger). Only applies from 768px and up. */
   --hero-image-scale-desktop: 1.1;
@@ -50,7 +50,7 @@
   --hero-image-margin-left: 0px;
   /* Hero image: how the image fills its frame (e.g. contain, cover) and where it’s anchored */
   --hero-image-object-fit: contain;
-  --hero-image-object-position: right center;
+  --hero-image-object-position: right bottom;
   --hero-image-opacity: 1;
   /* Hero bottom overlay: solid bar for hard cutoff (height positions the line; ~halfway through metrics card) */
   --hero-bottom-overlay-height: 0px;
@@ -79,13 +79,26 @@
   --hero-accent-mobile-scale: 1;
   --hero-accent-mobile-rotate: 0deg;
   --hero-accent-mobile-opacity: 0.9;
-  /* Hero background height: shrink so the figure sits on the bottom of the bg (e.g. 80%, 82%, 85%) */
+  /* Hero section height. Lower = more of the white section below visible on load (e.g. 88vh, 90vh). Separate for mobile and desktop. */
+  --hero-viewport-height-mobile: 70vh;
+  --hero-viewport-height-desktop: 90vh;
+  /* Hero background: position in px or % (x = horizontal, y = vertical). 0px = left, 100% = right/bottom; nudge with px e.g. 20px -10px. */
+  --hero-bg-position-x: 0px;
+  --hero-bg-position-y: 100%;
   --hero-bg-height: 82%;
+  /* Hero background desktop (768px+). Move with px or %. */
+  --hero-bg-position-x-desktop: 0px;
+  --hero-bg-position-y-desktop: 0px;
+  --hero-bg-height-desktop: 100%;
+  /* Hero background mobile (below 768px). Move with px or %. */
+  --hero-bg-position-x-mobile: 0px;
+  --hero-bg-position-y-mobile: 100%;
+  --hero-bg-height-mobile: 90%;
   /* Mobile only: hero figure size and position. Offset-x: positive = right, negative = left. Offset-y: positive = down, negative = up. */
-  --hero-figure-mobile-scale: 1.50;
+  --hero-figure-mobile-scale: 1.30;
   --hero-figure-mobile-max-width: 420px;
   --hero-figure-mobile-max-height: 52vh;
-  --hero-figure-mobile-offset-x: 35px;
+  --hero-figure-mobile-offset-x: 30px;
   --hero-figure-mobile-offset-y: -25px;
 
   /* Hero top-left accent (glow shape). Position: left, top, offset-x, offset-y. Size: width, scale. */
@@ -97,6 +110,30 @@
   --hero-top-left-width-desktop: 380px;
   --hero-top-left-scale: 1.2;
   --hero-top-left-opacity: 0.85;
+}
+
+/* Hero background: position and height from theme; override per breakpoint in globals.css */
+.hero-bg-vars {
+  --hero-bg-position-x: var(--hero-bg-position-x-mobile);
+  --hero-bg-position-y: var(--hero-bg-position-y-mobile);
+  --hero-bg-height: var(--hero-bg-height-mobile);
+}
+@media (min-width: 768px) {
+  .hero-bg-vars {
+    --hero-bg-position-x: var(--hero-bg-position-x-desktop);
+    --hero-bg-position-y: var(--hero-bg-position-y-desktop);
+    --hero-bg-height: var(--hero-bg-height-desktop);
+  }
+}
+
+/* Hero viewport height: separate control for mobile (below 768px) and desktop */
+.hero-section {
+  --hero-viewport-height: var(--hero-viewport-height-mobile);
+}
+@media (min-width: 768px) {
+  .hero-section {
+    --hero-viewport-height: var(--hero-viewport-height-desktop);
+  }
 }
 
 /* Hero headline: fluid font size so 3 lines always fit; shrinks on small screens */

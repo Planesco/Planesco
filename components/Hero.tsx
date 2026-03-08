@@ -1,19 +1,24 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
+import HeroViewport from "./HeroViewport";
 
 export default async function Hero() {
   const t = await getTranslations("hero");
   return (
     <section
-      className="relative flex min-h-[calc(100vh-140px)] w-full flex-col items-center justify-start overflow-hidden pt-12 pb-0 md:justify-center md:py-24 lg:py-[128px] px-6 md:px-12 lg:px-[120px]"
+      className="hero-section relative w-full overflow-hidden"
       style={{
-        isolation: "isolate",
-        ["--hero-bg-position-x" as string]: "left",
-        ["--hero-bg-position-y" as string]: "50%",
-        ["--hero-bg-height" as string]: "110%",
+        height: "var(--hero-viewport-height, 88vh)",
+        minHeight: "var(--hero-viewport-height, 88vh)",
+        backgroundColor: "var(--color-page-bg, #EBF2F1)",
       }}
     >
+      <HeroViewport>
+        <div
+          className="hero-bg-vars relative h-full w-full flex flex-col items-center justify-start pt-12 pb-0 md:justify-center md:py-24 lg:py-[128px] px-6 md:px-12 lg:px-[120px]"
+          style={{ isolation: "isolate" }}
+        >
       {/* Hero background: height from --hero-bg-height so figure can sit on its bottom */}
       <div
         className="absolute top-0 left-0 bg-cover bg-no-repeat hero-bg"
@@ -114,8 +119,8 @@ export default async function Hero() {
         />
       </div>
 
-      {/* Worker figure: full-height column so figure sits at the very bottom of the hero */}
-      <div className="hero-figure-column absolute inset-0 z-[1] flex items-end justify-end pr-0 md:items-center md:pr-6 lg:pr-8 xl:pr-10">
+      {/* Worker figure: full-height column so figure sits flush with bottom of hero (white box) */}
+      <div className="hero-figure-column absolute inset-0 z-[1] flex items-end justify-end pr-0 md:pr-6 lg:pr-8 xl:pr-10">
         <div
           className="hero-figure-inner relative h-full w-full max-w-[min(100%,var(--hero-figure-mobile-max-width,360px))] md:max-w-[min(100%,500px)] lg:max-w-[var(--hero-image-max-width)] hero-figure-mobile"
           style={{
@@ -144,7 +149,7 @@ export default async function Hero() {
             alt=""
             width={982}
             height={653}
-            className="hero-figure-img h-full w-full object-contain object-right object-bottom md:object-center hidden md:block"
+            className="hero-figure-img h-full w-full object-contain object-right object-bottom hidden md:block"
             priority
             quality={92}
             style={{ opacity: "var(--hero-image-opacity, 1)" }}
@@ -158,7 +163,7 @@ export default async function Hero() {
         className="relative z-10 mx-auto flex w-full max-w-[1920px] flex-col items-center justify-start pt-0 md:justify-center md:pt-0 px-4 md:pl-12 md:pr-12 lg:pl-16 lg:pr-16 xl:pl-20 xl:pr-20 md:items-start"
         style={{ fontFamily: "var(--font-hero)" }}
       >
-        <div className="hero-headline-wrap flex max-w-[960px] flex-col gap-4 w-full items-center text-center md:items-start md:text-left">
+        <div className="hero-headline-wrap flex max-w-[960px] md:max-w-[min(960px,52%)] flex-col gap-4 w-full items-center text-center md:items-start md:text-left">
           <h1
             className="hero-headline font-semibold leading-[1.12] tracking-[-0.02em] text-white text-center md:text-left"
             style={{ fontFamily: "var(--font-hero)" }}
@@ -225,6 +230,8 @@ export default async function Hero() {
         }}
         aria-hidden
       />
+        </div>
+      </HeroViewport>
     </section>
   );
 }

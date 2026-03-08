@@ -26,11 +26,14 @@
   },
   "services": {
     "title": "Services",
-    "projectManagement": "Project Management",
+    "projectManagement": "Project\nManagement",
     "planningControls": "Planning &\nProject Controls",
     "planningControlsDesc": "We transform project data into clear, reliable insights that support timely decision-making and proactive project control.",
     "safetyByDesign": "Safety by Design (SBD)",
-    "aiTools": "AI\nTools"
+    "aiTools": "AI\nTools",
+    "clickToFlip": "Click a card to flip and read more.",
+    "clickToRevealDescription": "Click to reveal description",
+    "descriptionPlaceholder": "More information coming soon."
   },
   "howWeWork": {
     "title": "How We Work",

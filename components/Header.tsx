@@ -32,6 +32,21 @@ export default function Header() {
     };
   }, [menuOpen]);
 
+  const HEADER_OFFSET_PX = 100;
+
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#") && pathname === "/") {
+      e.preventDefault();
+      const id = href.slice(1);
+      const el = document.getElementById(id);
+      if (el) {
+        const y = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET_PX;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+      setMenuOpen(false);
+    }
+  };
+
   return (
     <>
       <header
@@ -82,18 +97,21 @@ export default function Header() {
               <Link
                 href="#services"
                 className="text-white hover:text-[var(--color-lime)] transition-colors"
+                onClick={(e) => handleAnchorClick(e, "#services")}
               >
                 {t("services")}
               </Link>
               <Link
                 href="#how-we-work"
                 className="text-white hover:text-[var(--color-lime)] transition-colors"
+                onClick={(e) => handleAnchorClick(e, "#how-we-work")}
               >
                 {t("howWeWork")}
               </Link>
               <Link
                 href="#our-approach"
                 className="text-white hover:text-[var(--color-lime)] transition-colors"
+                onClick={(e) => handleAnchorClick(e, "#our-approach")}
               >
                 {t("ourApproach")}
               </Link>
@@ -101,6 +119,7 @@ export default function Header() {
             <Link
               href="#contact"
               className="ml-16 flex items-center justify-center rounded-[38px] bg-[#B9E629] px-5 py-3.5 font-medium text-[#1C1E1F] capitalize hover:opacity-90 transition-opacity"
+              onClick={(e) => handleAnchorClick(e, "#contact")}
             >
               {t("contactUs")}
             </Link>
@@ -156,21 +175,21 @@ export default function Header() {
             <Link
               href="#services"
               className="text-white text-[18px] font-medium hover:text-[#B9E629] transition-colors"
-              onClick={() => setMenuOpen(false)}
+              onClick={(e) => handleAnchorClick(e, "#services")}
             >
               {t("services")}
             </Link>
             <Link
               href="#how-we-work"
               className="text-white text-[18px] font-medium hover:text-[#B9E629] transition-colors"
-              onClick={() => setMenuOpen(false)}
+              onClick={(e) => handleAnchorClick(e, "#how-we-work")}
             >
               {t("howWeWork")}
             </Link>
             <Link
               href="#our-approach"
               className="text-white text-[18px] font-medium hover:text-[#B9E629] transition-colors"
-              onClick={() => setMenuOpen(false)}
+              onClick={(e) => handleAnchorClick(e, "#our-approach")}
             >
               {t("ourApproach")}
             </Link>
@@ -180,7 +199,7 @@ export default function Header() {
           <Link
             href="#contact"
             className="mt-10 flex w-full max-w-[280px] items-center justify-center rounded-[999px] bg-[#B9E629] px-6 py-4 text-base font-medium text-white capitalize hover:opacity-90 transition-opacity"
-            onClick={() => setMenuOpen(false)}
+            onClick={(e) => handleAnchorClick(e, "#contact")}
           >
             {t("contactUs")}
           </Link>
