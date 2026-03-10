@@ -120,7 +120,7 @@ export default async function Hero() {
       </div>
 
       {/* Worker figure: full-height column so figure sits flush with bottom of hero (white box) */}
-      <div className="hero-figure-column absolute inset-0 z-[1] flex items-end justify-end pr-0 md:pr-6 lg:pr-8 xl:pr-10">
+      <div className="hero-figure-column absolute inset-0 z-[1] flex items-end justify-center pr-0 md:justify-end md:pr-6 lg:pr-8 xl:pr-10">
         <div
           className="hero-figure-inner relative h-full w-full max-w-[min(100%,var(--hero-figure-mobile-max-width,360px))] md:max-w-[min(100%,500px)] lg:max-w-[var(--hero-image-max-width)] hero-figure-mobile"
           style={{
@@ -163,7 +163,7 @@ export default async function Hero() {
         className="relative z-10 mx-auto flex w-full max-w-[1920px] flex-col items-center justify-start pt-0 md:justify-center md:pt-0 px-4 md:pl-12 md:pr-12 lg:pl-16 lg:pr-16 xl:pl-20 xl:pr-20 md:items-start"
         style={{ fontFamily: "var(--font-hero)" }}
       >
-        <div className="hero-headline-wrap flex max-w-[960px] md:max-w-[min(960px,52%)] flex-col gap-4 w-full items-center text-center md:items-start md:text-left">
+        <div className="hero-headline-wrap flex max-w-[960px] md:max-w-[min(960px,52%)] flex-col gap-4 w-full items-start text-left">
           <h1
             className="hero-headline font-semibold leading-[1.12] tracking-[-0.02em] text-white text-center md:text-left"
             style={{ fontFamily: "var(--font-hero)" }}
@@ -203,10 +203,10 @@ export default async function Hero() {
               );
             })()}
           </h1>
-          <div className="pt-4">
+          <div className="flex w-full justify-center pt-4 md:justify-start">
             <Link
               href="#our-approach"
-              className="inline-flex items-center justify-center rounded-full p-[20px] text-base leading-5 md:text-[20px] md:leading-6 font-bold text-[#1C1E1F] transition-opacity hover:opacity-90"
+              className="inline-flex items-center justify-center rounded-full px-11 py-3 md:px-16 md:py-5 text-base leading-5 md:text-[20px] md:leading-6 font-bold text-[#1C1E1F] transition-opacity hover:opacity-90"
               style={{
                 backgroundColor: "#B9E629",
                 borderRadius: "58px",

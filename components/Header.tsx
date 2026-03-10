@@ -57,8 +57,8 @@ export default function Header() {
           backdropFilter: "blur(17px)",
         }}
       >
-        <div className="flex w-full items-center justify-between py-4 pl-3 pr-6 md:pl-5 md:pr-10 lg:pt-9 lg:pb-4">
-          <Link href="/" className="ml-6 md:ml-10 flex shrink-0 items-center" onClick={() => setMenuOpen(false)}>
+        <div className="flex w-full items-center justify-between py-4 pl-8 pr-10 md:pl-12 md:pr-16 lg:pt-9 lg:pb-4">
+          <Link href="/" className="flex shrink-0 items-center" onClick={() => setMenuOpen(false)}>
             <div className="relative h-[4rem] w-[12.5rem] md:h-[4.5rem] md:w-[15rem] shrink-0">
               <Image
                 src="/logo.png"
@@ -93,7 +93,7 @@ export default function Header() {
               letterSpacing: 0,
             }}
           >
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-12">
               <Link
                 href="#services"
                 className="text-white hover:text-[var(--color-lime)] transition-colors"
@@ -118,12 +118,12 @@ export default function Header() {
             </div>
             <Link
               href="#contact"
-              className="ml-16 flex items-center justify-center rounded-[38px] bg-[#B9E629] px-6 py-4 text-lg font-medium text-[#1C1E1F] capitalize hover:opacity-90 transition-opacity"
+              className="ml-12 flex items-center justify-center rounded-[38px] bg-[#B9E629] px-5 py-2 text-base font-medium text-[#1C1E1F] capitalize hover:opacity-90 transition-opacity"
               onClick={(e) => handleAnchorClick(e, "#contact")}
             >
               {t("contactUs")}
             </Link>
-            <div className="ml-8">
+            <div className="ml-10 mr-4">
               <LanguageSwitcher />
             </div>
           </nav>
@@ -183,21 +183,21 @@ export default function Header() {
           <nav className="flex flex-col items-end gap-8">
             <Link
               href="#services"
-              className="text-white text-[28px] font-medium hover:text-[#B9E629] transition-colors"
+              className="text-right text-white text-[28px] font-medium hover:text-[#B9E629] transition-colors"
               onClick={(e) => handleAnchorClick(e, "#services")}
             >
               {t("services")}
             </Link>
             <Link
               href="#how-we-work"
-              className="text-white text-[28px] font-medium hover:text-[#B9E629] transition-colors"
+              className="text-right text-white text-[28px] font-medium hover:text-[#B9E629] transition-colors"
               onClick={(e) => handleAnchorClick(e, "#how-we-work")}
             >
               {t("howWeWork")}
             </Link>
             <Link
               href="#our-approach"
-              className="text-white text-[28px] font-medium hover:text-[#B9E629] transition-colors"
+              className="text-right text-white text-[28px] font-medium hover:text-[#B9E629] transition-colors"
               onClick={(e) => handleAnchorClick(e, "#our-approach")}
             >
               {t("ourApproach")}

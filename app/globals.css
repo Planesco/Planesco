@@ -98,7 +98,7 @@
   --hero-figure-mobile-scale: 1.30;
   --hero-figure-mobile-max-width: 420px;
   --hero-figure-mobile-max-height: 52vh;
-  --hero-figure-mobile-offset-x: 30px;
+  --hero-figure-mobile-offset-x: 7px;
   --hero-figure-mobile-offset-y: -10px;
 
   /* Hero top-left accent (glow shape). Position: left, top, offset-x, offset-y. Size: width, scale. */
@@ -143,14 +143,13 @@
   }
 }
 
-/* Hero headline: fluid font size so 3 lines always fit; shrinks on small screens */
+/* Hero headline: always 3 lines, scaling with available width */
 .hero-headline-wrap {
   container-type: inline-size;
   container-name: hero-headline;
 }
-/* Keep exactly 3 lines: each line is nowrap, font-size scales to fit container */
 .hero-headline {
-  font-size: clamp(20px, 4.8cqi + 12px, 68px);
+  font-size: clamp(15px, 6.1vw, 68px);
 }
 
 @container hero-headline (min-width: 640px) {
