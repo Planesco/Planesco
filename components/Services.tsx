@@ -4,11 +4,31 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useRef, useState } from "react";
 
+const MOBILE_SLIDE_WIDTH_RATIO = 0.55; // mobile: ~2 cards visible
+
 function getScrollIndex(el: HTMLDivElement, count: number): number {
+  if (count <= 0) return 0;
   const scrollLeft = el.scrollLeft;
-  const step = el.offsetWidth;
-  const index = Math.round(scrollLeft / step);
-  return Math.max(0, Math.min(index, count - 1));
+  const containerCenter = scrollLeft + el.offsetWidth / 2;
+  const slides = el.querySelectorAll("[data-slide]");
+  if (slides.length === 0) {
+    const step = el.offsetWidth * MOBILE_SLIDE_WIDTH_RATIO;
+    return Math.max(0, Math.min(Math.round(scrollLeft / step), count - 1));
+  }
+  let bestIndex = 0;
+  let bestDist = Infinity;
+  slides.forEach((slide, i) => {
+    const rect = (slide as HTMLElement).getBoundingClientRect();
+    const containerRect = el.getBoundingClientRect();
+    const slideCenterInView = rect.left - containerRect.left + rect.width / 2;
+    const containerCenterInView = el.offsetWidth / 2;
+    const dist = Math.abs(containerCenterInView - slideCenterInView);
+    if (dist < bestDist) {
+      bestDist = dist;
+      bestIndex = i;
+    }
+  });
+  return Math.max(0, Math.min(bestIndex, count - 1));
 }
 
 export default function Services() {
@@ -71,7 +91,13 @@ export default function Services() {
   const goToSlide = (index: number) => {
     const el = scrollRef.current;
     if (!el) return;
-    el.scrollTo({ left: index * el.offsetWidth, behavior: "smooth" });
+    const slide = el.querySelector(`[data-slide="${index}"]`) as HTMLElement | null;
+    if (slide) {
+      slide.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    } else {
+      const step = el.offsetWidth * MOBILE_SLIDE_WIDTH_RATIO;
+      el.scrollTo({ left: index * step, behavior: "smooth" });
+    }
     setActiveIndex(index);
   };
 
@@ -135,9 +161,9 @@ export default function Services() {
               transform: `rotateY(${isFlipped ? 180 : 0}deg)`,
             }}
           >
-            {/* Front face: lime, centered icon + title */}
+            {/* Front face: lime, left-aligned icon + title */}
             <div
-              className="absolute inset-0 flex flex-col justify-center items-center gap-4 rounded-[24px] text-center p-5"
+              className="absolute inset-0 flex flex-col justify-center items-start gap-4 rounded-[24px] text-left p-5"
               style={{
                 background: "#B9E629",
                 backfaceVisibility: "hidden",
@@ -146,7 +172,7 @@ export default function Services() {
             >
               {s.icon && (
                 <div
-                  className="flex shrink-0 h-[63px] items-center justify-center"
+                  className="flex shrink-0 h-[63px] items-center justify-start"
                   style={{ color: "#779516" }}
                   aria-hidden
                 >
@@ -173,7 +199,7 @@ export default function Services() {
             </div>
             {/* Back face: white, title + description */}
             <div
-              className="absolute inset-0 flex flex-col rounded-[24px] text-center p-5 overflow-auto"
+              className="absolute inset-0 flex flex-col rounded-[24px] text-left p-5 overflow-auto"
               style={{
                 background: "#ffffff",
                 backfaceVisibility: "hidden",
@@ -204,16 +230,19 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="px-6 py-16 md:py-20"
+      className="px-6 pt-16 pb-4 md:pt-20 md:pb-6"
       style={{ fontFamily: "var(--font-hero)" }}
     >
       <div className="mx-auto max-w-[1202px]">
         <h2
-          className="mb-12 text-center text-[40px] font-bold leading-[110%] tracking-[-0.01em] text-[#1C1E1F]"
+          className="text-center text-[40px] font-bold leading-[110%] tracking-[-0.01em] text-[#1C1E1F]"
           style={{ fontFamily: "Inter", fontWeight: 700 }}
         >
           {t("title")}
         </h2>
+        <p className="mb-12 mt-2 text-center text-sm text-[#596A73]">
+          {t("clickToRevealDescription")}
+        </p>
         {/* Mobile carousel */}
         <div className="md:hidden">
           <div
@@ -226,7 +255,7 @@ export default function Services() {
               <div
                 key={s.title}
                 data-slide={i}
-                className="flex shrink-0 w-full min-w-full snap-center snap-always"
+                className="flex shrink-0 w-[55%] min-w-[55%] snap-center snap-always pr-3"
               >
                 <ServiceCard s={s} className="w-full" />
               </div>
@@ -260,9 +289,6 @@ export default function Services() {
             </div>
           ))}
         </div>
-        <p className="mt-4 text-center text-sm text-[#596A73]">
-          {t("clickToRevealDescription")}
-        </p>
       </div>
     </section>
   );

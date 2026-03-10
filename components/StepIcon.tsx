@@ -23,10 +23,10 @@ export default function StepIcon({ src, stepNumber }: StepIconProps) {
     <Image
       src={src}
       alt=""
-      width={28}
-      height={28}
+      width={34}
+      height={34}
       className="object-contain"
-      style={{ width: "auto", height: "auto" }}
+      style={{ width: "auto", height: "auto", transform: "scale(1.15)" }}
       onError={() => setFailed(true)}
     />
   );

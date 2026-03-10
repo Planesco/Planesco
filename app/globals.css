@@ -63,7 +63,7 @@
   --hero-accent-bottom: 10%;
   --hero-accent-top: auto;
   --hero-accent-offset-x: 0px;
-  --hero-accent-offset-y: 120px;
+  --hero-accent-offset-y: 40px;
   --hero-accent-scale: 1;
   --hero-accent-rotate: 0deg;
   --hero-accent-opacity: 0.9;
@@ -81,7 +81,7 @@
   --hero-accent-mobile-opacity: 0.9;
   /* Hero section height. Lower = more of the white section below visible on load (e.g. 88vh, 90vh). Separate for mobile and desktop. */
   --hero-viewport-height-mobile: 70vh;
-  --hero-viewport-height-desktop: 90vh;
+  --hero-viewport-height-desktop: 84vh;
   /* Hero background: position in px or % (x = horizontal, y = vertical). 0px = left, 100% = right/bottom; nudge with px e.g. 20px -10px. */
   --hero-bg-position-x: 0px;
   --hero-bg-position-y: 100%;
@@ -99,7 +99,7 @@
   --hero-figure-mobile-max-width: 420px;
   --hero-figure-mobile-max-height: 52vh;
   --hero-figure-mobile-offset-x: 30px;
-  --hero-figure-mobile-offset-y: -25px;
+  --hero-figure-mobile-offset-y: -10px;
 
   /* Hero top-left accent (glow shape). Position: left, top, offset-x, offset-y. Size: width, scale. */
   --hero-top-left-left: 0px;
@@ -133,6 +133,13 @@
 @media (min-width: 768px) {
   .hero-section {
     --hero-viewport-height: var(--hero-viewport-height-desktop);
+  }
+}
+
+/* Desktop: move figure up so it stays fully visible when hero height is reduced */
+@media (min-width: 768px) {
+  .hero-bg-vars {
+    --hero-image-margin-bottom: 20px;
   }
 }
 

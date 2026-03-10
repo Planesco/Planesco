@@ -58,14 +58,14 @@ export default function Header() {
         }}
       >
         <div className="flex w-full items-center justify-between py-4 pl-3 pr-6 md:pl-5 md:pr-10 lg:pt-9 lg:pb-4">
-          <Link href="/" className="flex shrink-0 items-center" onClick={() => setMenuOpen(false)}>
-            <div className="relative h-10 w-[7.5rem] md:h-12 md:w-[9rem] shrink-0">
+          <Link href="/" className="ml-6 md:ml-10 flex shrink-0 items-center" onClick={() => setMenuOpen(false)}>
+            <div className="relative h-[4rem] w-[12.5rem] md:h-[4.5rem] md:w-[15rem] shrink-0">
               <Image
                 src="/logo.png"
                 alt="PLANESCO"
                 fill
                 className="object-contain object-left"
-                sizes="(max-width: 768px) 120px, 144px"
+                sizes="(max-width: 768px) 200px, 240px"
                 priority
               />
             </div>
@@ -88,12 +88,12 @@ export default function Header() {
             style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontWeight: 500,
-              fontSize: "14px",
+              fontSize: "16px",
               lineHeight: "100%",
               letterSpacing: 0,
             }}
           >
-            <div className="flex items-center gap-12">
+            <div className="flex items-center gap-2">
               <Link
                 href="#services"
                 className="text-white hover:text-[var(--color-lime)] transition-colors"
@@ -118,7 +118,7 @@ export default function Header() {
             </div>
             <Link
               href="#contact"
-              className="ml-16 flex items-center justify-center rounded-[38px] bg-[#B9E629] px-5 py-3.5 font-medium text-[#1C1E1F] capitalize hover:opacity-90 transition-opacity"
+              className="ml-16 flex items-center justify-center rounded-[38px] bg-[#B9E629] px-6 py-4 text-lg font-medium text-[#1C1E1F] capitalize hover:opacity-90 transition-opacity"
               onClick={(e) => handleAnchorClick(e, "#contact")}
             >
               {t("contactUs")}
@@ -130,10 +130,19 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Full-screen mobile menu overlay */}
+      {/* Backdrop - shows left side of site, tap to close */}
       <div
-        className={`fixed inset-0 z-[100] md:hidden flex flex-col bg-[#1a1a1a] transition-opacity duration-200 ${
+        className={`fixed inset-0 z-[90] md:hidden bg-black/50 transition-opacity duration-200 ${
           menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        aria-hidden={!menuOpen}
+        onClick={() => setMenuOpen(false)}
+      />
+
+      {/* Mobile menu panel - slides in from right, leaves left side of site visible */}
+      <div
+        className={`fixed right-0 top-0 bottom-0 z-[100] md:hidden flex flex-col bg-[#1a1a1a] w-[min(85%,340px)] transition-transform duration-200 ease-out ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
         aria-hidden={!menuOpen}
         inert={!menuOpen ? true : undefined}
@@ -154,58 +163,58 @@ export default function Header() {
           </svg>
         </button>
 
-        {/* Centered content */}
+        {/* Content - right aligned, top */}
         <div
-          className="flex flex-1 flex-col items-center justify-center px-6 pt-16 pb-8"
+          className="flex flex-1 flex-col items-end justify-start pl-10 pr-6 pt-20 pb-8"
           style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
         >
           {/* Logo */}
-          <div className="relative mx-auto mb-12 h-12 w-[min(9rem,100%)] shrink-0">
+          <div className="relative mb-12 h-16 w-[11rem] shrink-0">
             <Image
               src="/logo.png"
               alt="PLANESCO"
               fill
-              className="object-contain"
-              sizes="144px"
+              className="object-contain object-right"
+              sizes="176px"
             />
           </div>
 
-          {/* Nav links - stacked, generous spacing, white, medium-large */}
-          <nav className="flex flex-col items-center gap-8">
+          {/* Nav links - right aligned, larger text */}
+          <nav className="flex flex-col items-end gap-8">
             <Link
               href="#services"
-              className="text-white text-[18px] font-medium hover:text-[#B9E629] transition-colors"
+              className="text-white text-[28px] font-medium hover:text-[#B9E629] transition-colors"
               onClick={(e) => handleAnchorClick(e, "#services")}
             >
               {t("services")}
             </Link>
             <Link
               href="#how-we-work"
-              className="text-white text-[18px] font-medium hover:text-[#B9E629] transition-colors"
+              className="text-white text-[28px] font-medium hover:text-[#B9E629] transition-colors"
               onClick={(e) => handleAnchorClick(e, "#how-we-work")}
             >
               {t("howWeWork")}
             </Link>
             <Link
               href="#our-approach"
-              className="text-white text-[18px] font-medium hover:text-[#B9E629] transition-colors"
+              className="text-white text-[28px] font-medium hover:text-[#B9E629] transition-colors"
               onClick={(e) => handleAnchorClick(e, "#our-approach")}
             >
               {t("ourApproach")}
             </Link>
           </nav>
 
-          {/* CTA - pill shape, neon green bg, white text */}
+          {/* CTA - right aligned, larger text */}
           <Link
             href="#contact"
-            className="mt-10 flex w-full max-w-[280px] items-center justify-center rounded-[999px] bg-[#B9E629] px-6 py-4 text-base font-medium text-white capitalize hover:opacity-90 transition-opacity"
+            className="mt-10 flex w-full max-w-[320px] items-center justify-center rounded-[999px] bg-[#B9E629] px-5 py-3 text-[16px] font-bold text-black capitalize hover:opacity-90 transition-opacity"
             onClick={(e) => handleAnchorClick(e, "#contact")}
           >
             {t("contactUs")}
           </Link>
 
-          {/* Language options - bottom, horizontal, smaller */}
-          <div className="mt-auto flex items-center justify-center gap-8 pt-10">
+          {/* Language options - right aligned, larger text */}
+          <div className="mt-16 flex w-full items-center justify-center gap-8">
             {routing.locales.map((locale) => (
               <Link
                 key={locale}
@@ -213,7 +222,7 @@ export default function Header() {
                 locale={locale}
                 scroll={false}
                 onClick={() => setMenuOpen(false)}
-                className={`text-[14px] font-medium transition-colors ${
+                className={`text-[12px] font-medium transition-colors ${
                   currentLocale === locale ? "text-[#B9E629]" : "text-white hover:text-[#B9E629]"
                 }`}
               >

@@ -70,15 +70,15 @@ export default function LanguageSwitcher() {
         aria-haspopup="listbox"
         aria-label="Select language"
       >
-        <span className="text-[14px] font-medium leading-[100%] text-white" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: 0 }}>
+        <span className="text-[16px] font-medium leading-[100%] text-white" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: 0 }}>
           {localeLabels[currentLocale] ?? currentLocale}
         </span>
         <svg
-          width="7"
-          height="6"
+          width="9"
+          height="8"
           viewBox="0 0 7 6"
           fill="none"
-          className={`pointer-events-none transition-transform ${isOpen ? "rotate-0" : "rotate-180"}`}
+          className={`pointer-events-none transition-transform ${isOpen ? "rotate-180" : "rotate-0"}`}
           aria-hidden
         >
           <path d="M3.5 6L0 0h7L3.5 6z" fill="#B9E629" />

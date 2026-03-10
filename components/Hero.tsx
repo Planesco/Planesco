@@ -16,7 +16,7 @@ export default async function Hero() {
     >
       <HeroViewport>
         <div
-          className="hero-bg-vars relative h-full w-full flex flex-col items-center justify-start pt-12 pb-0 md:justify-center md:py-24 lg:py-[128px] px-6 md:px-12 lg:px-[120px]"
+          className="hero-bg-vars relative h-full w-full flex flex-col items-center justify-start pt-12 pb-0 md:justify-center md:pt-6 md:pb-16 lg:pt-4 lg:pb-12 px-6 md:px-12 lg:px-[120px]"
           style={{ isolation: "isolate" }}
         >
       {/* Hero background: height from --hero-bg-height so figure can sit on its bottom */}
@@ -206,7 +206,7 @@ export default async function Hero() {
           <div className="pt-4">
             <Link
               href="#our-approach"
-              className="inline-flex items-center justify-center rounded-full px-8 py-3 text-sm leading-5 md:px-[52px] md:py-[18px] md:text-[18px] md:leading-[20px] font-bold text-[#1C1E1F] transition-opacity hover:opacity-90"
+              className="inline-flex items-center justify-center rounded-full p-[20px] text-base leading-5 md:text-[20px] md:leading-6 font-bold text-[#1C1E1F] transition-opacity hover:opacity-90"
               style={{
                 backgroundColor: "#B9E629",
                 borderRadius: "58px",

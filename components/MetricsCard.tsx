@@ -41,7 +41,7 @@ export default async function MetricsCard() {
             className="flex flex-1 flex-col items-center justify-center text-center border-r border-[#E0E0E0] last:border-r-0"
           >
             <span
-              className="text-4xl font-extrabold leading-[110%] tracking-[-0.04em] md:text-[64px]"
+              className="text-[52px] font-extrabold leading-[110%] tracking-[-0.04em] md:text-[56.5px]"
               style={gradientStyle}
             >
               {stat.value}

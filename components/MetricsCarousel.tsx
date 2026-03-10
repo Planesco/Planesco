@@ -67,25 +67,25 @@ export default function MetricsCarousel({ stats }: { stats: Stat[] }) {
   };
 
   return (
-    <div className="md:hidden">
+    <div className="md:hidden overflow-hidden -mx-6 w-[calc(100%+48px)]">
       <div
         ref={scrollRef}
         onScroll={handleScroll}
-        className="flex snap-x snap-mandatory overflow-x-auto pb-4 -mx-6 px-6 scroll-smooth"
+        className="flex snap-x snap-mandatory overflow-x-auto overflow-y-hidden pb-4 px-6 scroll-smooth"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {stats.map((stat, i) => (
           <div
             key={stat.label}
             data-metric-slide={i}
-            className="flex shrink-0 w-full min-w-full snap-center snap-always flex-col items-center justify-center rounded-[14px] bg-white py-8 px-6 text-center"
+            className="flex shrink-0 w-full min-w-full max-w-full basis-full snap-center snap-always flex-col items-center justify-center rounded-[14px] bg-white py-8 px-6 text-center"
             style={{
               boxShadow: cardShadow,
               fontFamily: "var(--font-hero)",
             }}
           >
             <span
-              className="text-[40px] font-extrabold leading-[110%] tracking-[-0.04em]"
+              className="text-[52px] font-extrabold leading-[110%] tracking-[-0.04em]"
               style={gradientStyle}
             >
               {stat.value}

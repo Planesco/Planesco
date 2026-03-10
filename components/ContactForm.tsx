@@ -249,9 +249,9 @@ export default function ContactForm({ transparentBg }: ContactFormProps = {}) {
             style={{ fontFamily: "var(--font-hero)" }}
           >
             <span>{t("sectionTitle1")}</span>
-            <span className="inline-block bg-[#1D1D23] px-1 py-0.5 text-[#B9E629]">{t("sectionTitle2")}</span>
-            <span className="inline-block bg-[#1D1D23] px-1 py-0.5 text-[#B9E629]">{t("sectionTitle3")}</span>
-            <span className="inline-block bg-[#1D1D23] px-1 py-0.5 text-[#B9E629]">{t("sectionTitle4")}</span>
+            <span className="inline-block w-fit bg-[#1D1D23] px-1 py-0.5 text-[#B9E629]">{t("sectionTitle2")}</span>
+            <span className="inline-block w-fit bg-[#1D1D23] px-1 py-0.5 text-[#B9E629]">{t("sectionTitle3")}</span>
+            <span className="inline-block w-fit bg-[#1D1D23] px-1 py-0.5 text-[#B9E629]">{t("sectionTitle4")}</span>
           </h2>
           <p
             className="max-w-[325px] text-[16px] font-normal leading-5 text-[#596A73]"

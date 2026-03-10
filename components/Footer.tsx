@@ -6,7 +6,7 @@ export default async function Footer() {
   const t = await getTranslations("footer");
   return (
     <footer
-      className="py-12 px-6 md:py-16"
+      className="pt-8 pb-20 px-6 md:pt-12 md:pb-28"
       style={{
         background: "#1A1818",
         fontFamily: "Inter",
@@ -20,26 +20,29 @@ export default async function Footer() {
             width={282}
             height={48}
             className="mx-auto h-12 w-auto object-contain"
-            style={{ width: "auto" }}
+            style={{ width: "auto", height: "auto" }}
           />
         </Link>
-        <p
-          className="mt-10 text-[12px] font-normal leading-[15px]"
+        <div
+          className="mt-12 flex flex-col gap-5 text-[12px] font-normal leading-[18px]"
           style={{ color: "#99A39D" }}
         >
-          {t("tagline")}
-          <br />
-          {t("line2")}
-          <br />
-          {t("contact")}{" "}
-          <a
-            href="mailto:info@planesco.com"
-            className="text-[#99A39D] hover:underline"
-          >
-            info@planesco.com
-          </a>
-          <br />
-          <br />
+          <span>{t("tagline")}</span>
+          <span>{t("line2")}</span>
+          <span>
+            {t("contact")}{" "}
+            <a
+              href="mailto:info@planesco.com"
+              className="text-[#B9E629] hover:underline"
+            >
+              info@planesco.com
+            </a>
+          </span>
+        </div>
+        <p
+          className="mt-28 text-[12px] font-normal leading-[18px]"
+          style={{ color: "#99A39D" }}
+        >
           {t("copyright")}
         </p>
       </div>
