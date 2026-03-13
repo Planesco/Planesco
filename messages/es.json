@@ -17,20 +17,23 @@
     "cta": "Nuestro enfoque"
   },
   "metrics": {
-    "stat1Value": "15+",
+    "stat1Value": "13+",
     "stat1Label": "Años de experiencia industrial",
     "stat2Value": "30+",
-    "stat2Label": "Proyectos gestionados",
+    "stat2Label": "Proyectos entregados",
     "stat3Value": "3+",
-    "stat3Label": "Países de operación"
+    "stat3Label": "Megaproyectos"
   },
   "services": {
     "title": "Servicios",
     "projectManagement": "Gestión de\nproyectos",
     "planningControls": "Planificación y\nControl de proyectos",
+    "projectManagementDesc": "Traducimos los objetivos del cliente en una ejecución estructurada, garantizando claridad, responsabilidad y continuidad a lo largo de todo el proyecto.",
     "planningControlsDesc": "Transformamos los datos del proyecto en información clara y fiable que apoya la toma de decisiones oportuna y el control proactivo del proyecto.",
     "safetyByDesign": "Seguridad por diseño (SBD)",
+    "safetyByDesignDesc": "Integramos principios de seguridad en la ingeniería y el diseño del proyecto, priorizando la protección del usuario al identificar los riesgos potenciales de forma temprana y eliminarlos o minimizarlos desde el origen.",
     "aiTools": "IA\nHerramientas",
+    "aiToolsDesc": "Aplicamos inteligencia artificial para mejorar la visibilidad del proyecto, acelerar la identificación de riesgos y respaldar una toma de decisiones oportuna y bien informada.",
     "clickToFlip": "Haz clic en una tarjeta para voltearla y leer más.",
     "clickToRevealDescription": "Haz clic para ver la descripción",
     "descriptionPlaceholder": "Más información próximamente."
@@ -55,9 +58,15 @@
     "paragraph4": "La seguridad es una prioridad en PLANESCO. Nuestro enfoque Safety by Design integra los principios de seguridad en la ingeniería y el diseño, y estos resultados se trasladan a la planificación de ejecución.",
     "paragraph5": "Así  no solo ofrecemos condiciones de trabajo más seguras, sino que medimos el rendimiento y seguimos las áreas de mejora continua.",
     "whatClientsSay": "Perspectiva del cliente",
-    "testimonial": "Su enfoque estructurado de planificación y control de proyectos aportó claridad a un proyecto industrial complejo con importantes restricciones de plazos y normativas.\n\nEl nivel de supervisión y disciplina aplicado durante la ejecución nos permitió mantener el control y tomar decisiones informadas en etapas críticas.",
-    "testimonialAuthor": "Michael Turner",
-    "testimonialRole": "Director de proyecto, instalación industrial"
+    "testimonial1Quote": "Con PLANESCO, logramos una mayor predictibilidad y un entorno de trabajo más seguro al integrar la gestión de riesgos, el control del desempeño y la seguridad en un sistema coherente y práctico que fortaleció la gobernanza general del proyecto.",
+    "testimonial1Name": "Olivier Taillon",
+    "testimonial1Role": "Director de construcción, Black & McDonald Limited",
+    "testimonial2Quote": "Para Groupe LNA, PLANESCO resultó ser mucho más que un subcontratista: se convirtió en un socio clave dentro de nuestro enfoque Quick Project Recovery Task Force.\n\nLa intervención de PLANESCO ayudó a restablecer la estructura del proyecto, habilitar una toma de decisiones más rápida y aportar mayor transparencia a los inversores.",
+    "testimonial2Name": "Daniel Héroux",
+    "testimonial2Role": "VP de construcción, Groupe LNA",
+    "testimonial3Quote": "Cuando PLANESCO se incorporó al proyecto UC, afrontábamos problemas de control significativos y retrasos en el cronograma. Carlos aportó claridad alineando nuestras prioridades con objetivos realistas y reconstruyendo nuestro marco de control del proyecto.\n\nSu liderazgo fue fundamental para restaurar la confianza, mejorar la predictibilidad y fortalecer nuestra gobernanza en materia de seguridad.",
+    "testimonial3Name": "Sungchul Shin",
+    "testimonial3Role": "Gerente senior de proyecto, POSCO Future M"
   },
   "contact": {
     "headline": "Déjanos un mensaje:",

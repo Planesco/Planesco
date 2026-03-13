@@ -17,20 +17,23 @@
     "cta": "Notre approche"
   },
   "metrics": {
-    "stat1Value": "15+",
+    "stat1Value": "13+",
     "stat1Label": "Années d'expérience industrielle",
     "stat2Value": "30+",
-    "stat2Label": "Projets gérés",
+    "stat2Label": "Projets livrés",
     "stat3Value": "3+",
-    "stat3Label": "Pays d'intervention"
+    "stat3Label": "Mégaprojets"
   },
   "services": {
     "title": "Services",
     "projectManagement": "Gestion de\nprojet",
     "planningControls": "Planification &\nContrôle de projet",
+    "projectManagementDesc": "Nous traduisons les objectifs du client en une exécution structurée, garantissant clarté, responsabilité et continuité tout au long du projet.",
     "planningControlsDesc": "Nous transformons les données du projet en informations claires et fiables pour une prise de décision en temps utile et un contrôle proactif du projet.",
     "safetyByDesign": "Sécurité par la conception (SBD)",
+    "safetyByDesignDesc": "Nous intégrons les principes de sécurité dans l’ingénierie et la conception du projet, en priorisant la protection des utilisateurs grâce à l’identification précoce des dangers potentiels et à leur élimination ou réduction à la source.",
     "aiTools": "IA\nOutils",
+    "aiToolsDesc": "Nous appliquons l’intelligence artificielle pour améliorer la visibilité du projet, accélérer l’identification des risques et soutenir une prise de décision éclairée et opportune.",
     "clickToFlip": "Cliquez sur une carte pour la retourner et en savoir plus.",
     "clickToRevealDescription": "Cliquez pour afficher la description",
     "descriptionPlaceholder": "Plus d'informations à venir."
@@ -55,9 +58,15 @@
     "paragraph4": "La sécurité est une priorité chez PLANESCO. Notre approche Safety by Design intègre les principes de sécurité dans l'ingénierie et la conception, avec des effets jusqu'à la planification d'exécution.",
     "paragraph5": "Cela  nous permet non seulement d'offrir des conditions de travail plus sûres, mais aussi de mesurer les performances et de suivre les axes d'amélioration continue.",
     "whatClientsSay": "Point de vue client",
-    "testimonial": "Leur approche structurée de la planification et du contrôle de projet a apporté de la clarté à un projet industriel complexe avec des contraintes importantes de calendrier et de réglementation.\n\nLe niveau de supervision et de rigueur appliqué tout au long de l'exécution nous a permis de garder le contrôle et de prendre des décisions éclairées à des étapes critiques.",
-    "testimonialAuthor": "Michael Turner",
-    "testimonialRole": "Directeur de projet, installation industrielle"
+    "testimonial1Quote": "Avec PLANESCO, nous avons atteint une meilleure prévisibilité et un environnement de travail plus sûr en intégrant la gestion des risques, le contrôle de la performance et la sécurité dans un système cohérent et pratique qui a renforcé la gouvernance globale du projet.",
+    "testimonial1Name": "Olivier Taillon",
+    "testimonial1Role": "Directeur construction, Black & McDonald Limited",
+    "testimonial2Quote": "Pour le Groupe LNA, PLANESCO s’est révélé bien plus qu’un simple sous-traitant — ils sont devenus un partenaire clé dans notre approche Quick Project Recovery Task Force.\n\nL’intervention de PLANESCO a permis de rétablir la structure du projet, de faciliter une prise de décision plus rapide et d’offrir une plus grande transparence aux investisseurs.",
+    "testimonial2Name": "Daniel Héroux",
+    "testimonial2Role": "VP Construction, Groupe LNA",
+    "testimonial3Quote": "Lorsque PLANESCO a rejoint le projet UC, nous faisions face à d’importants problèmes de contrôle et à des retards d’échéancier. Carlos a apporté de la clarté en alignant nos priorités sur des objectifs réalistes et en reconstruisant notre cadre de contrôle de projet.\n\nSon leadership a été déterminant pour rétablir la confiance, améliorer la prévisibilité et renforcer notre gouvernance en matière de sécurité.",
+    "testimonial3Name": "Sungchul Shin",
+    "testimonial3Role": "Chef de projet principal, POSCO Future M"
   },
   "contact": {
     "headline": "Laissez-nous un message :",

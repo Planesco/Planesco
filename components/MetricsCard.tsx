@@ -29,7 +29,6 @@ export default async function MetricsCard() {
           paddingRight: 88,
           paddingBottom: 40,
           paddingLeft: 88,
-          gap: 64,
           boxShadow:
             "0px 53px 21px rgba(152, 225, 191, 0.01), 0px 30px 18px rgba(152, 225, 191, 0.05), 0px 13px 13px rgba(152, 225, 191, 0.09), 0px 3px 7px rgba(152, 225, 191, 0.1)",
           fontFamily: "var(--font-hero)",
@@ -38,7 +37,7 @@ export default async function MetricsCard() {
         {stats.map((stat, i) => (
           <div
             key={stat.label}
-            className="flex flex-1 flex-col items-center justify-center text-center border-r border-[#E0E0E0] last:border-r-0"
+            className="flex flex-1 flex-col items-center justify-center px-10 text-center border-r border-[#E0E0E0] last:border-r-0"
           >
             <span
               className="text-[52px] font-extrabold leading-[110%] tracking-[-0.04em] md:text-[56.5px]"

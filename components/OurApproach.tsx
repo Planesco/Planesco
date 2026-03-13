@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import ContactForm from "@/components/ContactForm";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 const jakartaBold = {
   fontFamily: "Plus Jakarta Sans",
@@ -36,7 +37,7 @@ export default async function OurApproach() {
     >
       {/* Blue box: under How We Work and under contact form; taller on mobile so Our Approach stays inside it */}
       <div
-        className="absolute left-1/2 z-0 -translate-x-1/2 w-full max-w-[1920px] bg-[#D7E6EA] min-h-[1000px] md:min-h-0 md:h-[820px]"
+        className="absolute left-1/2 z-0 -translate-x-1/2 w-full max-w-[1920px] bg-[#D7E6EA] min-h-[880px] md:min-h-0 md:h-[760px]"
         style={{
           top: "-90px",
         }}
@@ -45,7 +46,7 @@ export default async function OurApproach() {
 
       {/* Content on top of the blue box */}
       <div className="relative z-10">
-        <div className="mx-auto flex max-w-[1200px] flex-col gap-20 px-6 pb-16 sm:px-10 lg:flex-row lg:items-start lg:justify-between lg:gap-12 lg:px-12">
+        <div className="mx-auto flex max-w-[1320px] flex-col gap-20 px-6 pb-10 sm:px-10 lg:flex-row lg:items-start lg:justify-between lg:gap-24 lg:px-12">
           <div className="flex max-w-[565px] flex-col gap-6 lg:flex-1">
             <h2
               className="text-[#333333]"
@@ -79,19 +80,15 @@ export default async function OurApproach() {
             </div>
           </div>
 
-          {/* Client perspective placeholder – content to be added */}
-          <div className="flex max-w-[400px] flex-shrink-0 flex-col gap-6 lg:ml-auto">
+          {/* Client perspective – testimonial carousel */}
+          <div className="flex max-w-[480px] flex-shrink-0 flex-col gap-6 lg:ml-auto">
             <h3
               className="text-[#333333]"
               style={{ ...jakartaBold, fontSize: "22px" }}
             >
               {t("whatClientsSay")}
             </h3>
-            <div
-              className="relative flex min-h-[320px] flex-col rounded-[24px] bg-[#fcfcfc] px-6 pt-[31px] pb-9"
-              style={{ boxShadow: testimonialShadow }}
-              aria-hidden
-            />
+            <TestimonialCarousel />
           </div>
         </div>
 

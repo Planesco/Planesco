@@ -17,20 +17,23 @@
     "cta": "Our Approach"
   },
   "metrics": {
-    "stat1Value": "15+",
+    "stat1Value": "13+",
     "stat1Label": "Years of Industrial Experience",
     "stat2Value": "30+",
-    "stat2Label": "Projects Managed",
+    "stat2Label": "Projects Delivered",
     "stat3Value": "3+",
-    "stat3Label": "Countries of Operation"
+    "stat3Label": "Megaprojects"
   },
   "services": {
     "title": "Services",
     "projectManagement": "Project\nManagement",
     "planningControls": "Planning &\nProject Controls",
+    "projectManagementDesc": "We translate the client’s objectives into structured execution, ensuring clarity, accountability, and continuity throughout the project.",
     "planningControlsDesc": "We transform project data into clear, reliable insights that support timely decision-making and proactive project control.",
     "safetyByDesign": "Safety by Design (SBD)",
+    "safetyByDesignDesc": "We integrate safety principles into project engineering and design, prioritizing user protection by identifying potential hazards early and eliminating or minimizing them at the source.",
     "aiTools": "AI\nTools",
+    "aiToolsDesc": "We apply artificial intelligence to enhance project visibility, accelerate risk identification, and support timely, informed decision-making.",
     "clickToFlip": "Click a card to flip and read more.",
     "clickToRevealDescription": "Click to reveal description",
     "descriptionPlaceholder": "More information coming soon."
@@ -55,9 +58,15 @@
     "paragraph4": "Safety is a core priority at PLANESCO. Our Safety by Design approach embeds safety principles into engineering and design, with these outcomes carried through into execution planning.",
     "paragraph5": "This  allows us not only to provide safer working conditions, but also to measure performance and track continuous improvement areas.",
     "whatClientsSay": "Client Perspective",
-    "testimonial": "Their structured planning and project controls approach brought clarity to a complex industrial project with significant schedule and regulatory constraints.\n\nThe level of oversight and discipline applied throughout execution allowed us to maintain control and make informed decisions at critical stages.",
-    "testimonialAuthor": "Michael Turner",
-    "testimonialRole": "Project Director, Industrial Facility"
+    "testimonial1Quote": "With PLANESCO, we achieved greater predictability and a safer working environment by integrating risk management, performance control, and safety into a coherent and practical system that strengthened overall project governance.",
+    "testimonial1Name": "Olivier Taillon",
+    "testimonial1Role": "Construction Director, Black & McDonald Limited",
+    "testimonial2Quote": "For Groupe LNA, PLANESCO proved to be much more than a subcontractor — they became a key partner in our Quick Project Recovery Task Force approach.\n\nPLANESCO intervention helped restore project structure, enable faster decision-making, and bring greater transparency for investors.",
+    "testimonial2Name": "Daniel Héroux",
+    "testimonial2Role": "Construction VP, Groupe LNA",
+    "testimonial3Quote": "When PLANESCO joined the UC project, we were facing significant control issues and schedule overruns. Carlos brought clarity by aligning our priorities with realistic objectives and rebuilding our project control framework.\n\nHis leadership was instrumental in restoring confidence, improving predictability, and strengthening our safety governance.",
+    "testimonial3Name": "Sungchul Shin",
+    "testimonial3Role": "Senior Project Manager, POSCO Future M"
   },
   "contact": {
     "headline": "Drop us a message:",

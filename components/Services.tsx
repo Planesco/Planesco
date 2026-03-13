@@ -40,7 +40,7 @@ export default function Services() {
     {
       title: t("projectManagement"),
       icon: "/icons/project-management.png",
-      description: null as string | null,
+      description: t("projectManagementDesc"),
     },
     {
       title: t("planningControls"),
@@ -50,12 +50,12 @@ export default function Services() {
     {
       title: t("safetyByDesign"),
       icon: "/icons/safety-by-design.png",
-      description: null,
+      description: t("safetyByDesignDesc"),
     },
     {
       title: t("aiTools"),
       icon: "/icons/ai-tools.png",
-      description: null,
+      description: t("aiToolsDesc"),
     },
   ];
 

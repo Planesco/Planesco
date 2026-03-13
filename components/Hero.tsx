@@ -163,7 +163,7 @@ export default async function Hero() {
         className="relative z-10 mx-auto flex w-full max-w-[1920px] flex-col items-center justify-start pt-0 md:justify-center md:pt-0 px-4 md:pl-12 md:pr-12 lg:pl-16 lg:pr-16 xl:pl-20 xl:pr-20 md:items-start"
         style={{ fontFamily: "var(--font-hero)" }}
       >
-        <div className="hero-headline-wrap flex max-w-[960px] md:max-w-[min(960px,52%)] flex-col gap-4 w-full items-start text-left">
+        <div className="hero-headline-wrap flex max-w-[960px] md:max-w-[min(960px,52%)] flex-col gap-4 w-full items-center text-center md:items-start md:text-left">
           <h1
             className="hero-headline font-semibold leading-[1.12] tracking-[-0.02em] text-white text-center md:text-left"
             style={{ fontFamily: "var(--font-hero)" }}
